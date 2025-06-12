@@ -121,7 +121,7 @@ export default function HomePage() {
         <TabsContent value="depot-info" className="py-6 space-y-6">
           <Card>
             <CardHeader>
-              <CardTitle className="text-primary">Basis Information</CardTitle>
+              <CardTitle className="text-[hsl(var(--logo-blue))]">Basis Information</CardTitle>
             </CardHeader>
             <CardContent>
               <p className="text-muted-foreground">Hier werden Basisinformationen zum Depot angezeigt.</p>
@@ -132,3 +132,4 @@ export default function HomePage() {
     </div>
   );
 }
+
