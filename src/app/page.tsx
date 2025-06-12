@@ -7,8 +7,19 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 export default function HomePage() {
+  const depotInfoCategories = [
+    "Grunddaten",
+    "Steuerliche Merkmale",
+    "Zugriffsrechte & Rechtliches",
+    "Kosten und Gebühren",
+    "Beratung & Zusatzmerkmale",
+    "Sonstiges",
+    "Steuer"
+  ];
+
   return (
     <div className="container mx-auto py-8 px-4 md:px-8">
       <div className="flex items-center justify-start space-x-2 mb-8">
@@ -91,8 +102,19 @@ export default function HomePage() {
         <TabsContent value="structure">
           <p className="p-4 text-center text-muted-foreground">Inhalt für Struktur.</p>
         </TabsContent>
-        <TabsContent value="depot-info">
-          <p className="p-4 text-center text-muted-foreground">Inhalt für Depot Info.</p>
+        <TabsContent value="depot-info" className="py-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {depotInfoCategories.map((category) => (
+              <Card key={category} className="shadow-lg hover:shadow-xl transition-shadow duration-300">
+                <CardHeader>
+                  <CardTitle className="text-lg text-primary">{category}</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-sm text-muted-foreground">Details für {category}.</p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
         </TabsContent>
       </Tabs>
     </div>
