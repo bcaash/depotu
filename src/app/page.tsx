@@ -129,8 +129,23 @@ export default function HomePage() {
                   </CardHeader>
                 </AccordionTrigger>
                 <AccordionContent>
-                  <CardContent className="space-y-4 pt-0">
-                    <p className="text-sm text-muted-foreground">Details zur Basisinformation werden hier angezeigt.</p>
+                  <CardContent className="space-y-2 pt-0">
+                    <p className="text-sm"><span className="font-medium">Depotart:</span> <span className="text-muted-foreground">[Daten hier]</span></p>
+                    <p className="text-sm"><span className="font-medium">Depotbezeichnung:</span> <span className="text-muted-foreground">[Daten hier]</span></p>
+                    <p className="text-sm"><span className="font-medium">Depotinhaber:</span> <span className="text-muted-foreground">[Daten hier]</span></p>
+                    <p className="text-sm"><span className="font-medium">UND/ODER Depot:</span> <span className="text-muted-foreground">[Daten hier]</span></p>
+                    <p className="text-sm"><span className="font-medium">Verfügungsbeschränkung / Pfändung:</span> <span className="text-muted-foreground">[Daten hier]</span></p>
+                    <p className="text-sm"><span className="font-medium">VL Vermerk:</span> <span className="text-muted-foreground">[Daten hier]</span></p>
+                    <p className="text-sm"><span className="font-medium">Wiederanlage:</span> <span className="text-muted-foreground">[Daten hier]</span></p>
+                    <p className="text-sm"><span className="font-medium">Bevollmächtigter:</span> <span className="text-muted-foreground">[Daten hier]</span></p>
+                    <p className="text-sm"><span className="font-medium">Depot Eröffnungsdatum:</span> <span className="text-muted-foreground">[Daten hier]</span></p>
+                    <p className="text-sm"><span className="font-medium">Depotlöschung vorgemerkt:</span> <span className="text-muted-foreground">[Daten hier]</span></p>
+                    <p className="text-sm"><span className="font-medium">Derivate-Handelserlaubnis:</span> <span className="text-muted-foreground">[Daten hier]</span></p>
+                    <p className="text-sm"><span className="font-medium">Letzte Depotänderung:</span> <span className="text-muted-foreground">[Daten hier]</span></p>
+                    <p className="text-sm"><span className="font-medium">Vollmacht (Ja/Nein):</span> <span className="text-muted-foreground">[Daten hier]</span></p>
+                    <p className="text-sm"><span className="font-medium">Zahlpläne:</span> <span className="text-muted-foreground">[Daten hier]</span></p>
+                    <p className="text-sm"><span className="font-medium">Risikoklasse:</span> <span className="text-muted-foreground">[Daten hier]</span></p>
+                    <p className="text-sm"><span className="font-medium">Letzte Transaktion:</span> <span className="text-muted-foreground">[Daten hier]</span></p>
                   </CardContent>
                 </AccordionContent>
               </Card>
