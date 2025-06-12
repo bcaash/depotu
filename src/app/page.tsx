@@ -11,13 +11,14 @@ export default function HomePage() {
       </div>
 
       <Tabs defaultValue="overview" className="w-full">
-        <TabsList className="grid w-full grid-cols-6">
+        <TabsList className="grid w-full grid-cols-7">
           <TabsTrigger value="overview">Übersicht</TabsTrigger>
           <TabsTrigger value="performance">Wertentwicklung</TabsTrigger>
           <TabsTrigger value="instruments">Instrumente</TabsTrigger>
           <TabsTrigger value="transactions">Transaktionen</TabsTrigger>
           <TabsTrigger value="payment-plans">Zahlpläne</TabsTrigger>
           <TabsTrigger value="structure">Struktur</TabsTrigger>
+          <TabsTrigger value="depot-info">Depot Info</TabsTrigger>
         </TabsList>
         <TabsContent value="overview">
           {/* Content for Übersicht tab will go here */}
@@ -42,6 +43,10 @@ export default function HomePage() {
         <TabsContent value="structure">
           {/* Content for Struktur tab will go here */}
           <p className="p-4 text-center text-muted-foreground">Inhalt für Struktur.</p>
+        </TabsContent>
+        <TabsContent value="depot-info">
+          {/* Content for Depot Info tab will go here */}
+          <p className="p-4 text-center text-muted-foreground">Inhalt für Depot Info.</p>
         </TabsContent>
       </Tabs>
     </div>
