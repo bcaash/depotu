@@ -130,30 +130,7 @@ export default function HomePage() {
                 </AccordionTrigger>
                 <AccordionContent>
                   <CardContent className="space-y-4 pt-0">
-                    <div className="space-y-2">
-                      <Label htmlFor="depotvariante">Depotvariante</Label>
-                      <Select defaultValue="standard">
-                        <SelectTrigger id="depotvariante" className="w-full">
-                          <SelectValue placeholder="Wählen Sie eine Variante" />
-                        </SelectTrigger>
-                        <SelectContent>
-                          <SelectItem value="standard">Standard</SelectItem>
-                          <SelectItem value="premium">Premium</SelectItem>
-                          <SelectItem value="flex">Flex</SelectItem>
-                        </SelectContent>
-                      </Select>
-                    </div>
-                    <div className="space-y-1">
-                      <Label className="font-medium flex items-center">
-                        Depot Bezeichnung:
-                        <Info className="h-4 w-4 ml-2 text-primary cursor-pointer" />
-                      </Label>
-                      <p className="text-sm text-muted-foreground">[Platzhalter für Beschreibung der Depot Bezeichnung]</p>
-                    </div>
-                     <div className="space-y-1">
-                      <Label className="font-medium">Depotinhabers:</Label>
-                      <p className="text-sm text-muted-foreground">[Name des Depotinhabers]</p>
-                    </div>
+                    <p className="text-sm text-muted-foreground">Details zur Basisinformation werden hier angezeigt.</p>
                   </CardContent>
                 </AccordionContent>
               </Card>
