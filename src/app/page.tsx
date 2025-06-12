@@ -16,7 +16,7 @@ export default function HomePage() {
         <Settings className="h-6 w-6 text-primary cursor-pointer" />
       </div>
 
-      <div className="mb-8 grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6 items-end">
+      <div className="mb-8 grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-6 items-end">
         <div className="space-y-2">
           <Label htmlFor="depotauswahl">Depotauswahl</Label>
           <Select defaultValue="gesamtbestand">
@@ -37,13 +37,6 @@ export default function HomePage() {
             <Input id="zeitraum" defaultValue="Seit Investmentbeginn" className="pr-10" />
             <CalendarDays className="absolute right-3 top-1/2 h-5 w-5 -translate-y-1/2 text-muted-foreground" />
           </div>
-        </div>
-
-        <div className="flex flex-col items-start space-y-2">
-           <div className="flex items-center space-x-2">
-            <Button variant="link" className="p-0 h-auto text-primary">Benchmark</Button>
-            <SlidersHorizontal className="h-4 w-4 text-muted-foreground" />
-           </div>
         </div>
 
         <div className="space-y-2">
