@@ -1,7 +1,7 @@
 
 'use client';
 
-import { Settings, CalendarDays, Info, ArrowUp } from 'lucide-react';
+import { Settings, CalendarDays, Info, ArrowUp, SlidersHorizontal } from 'lucide-react';
 import Image from 'next/image';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
@@ -43,7 +43,7 @@ export default function HomePage() {
         <Settings className="h-6 w-6 text-primary cursor-pointer" />
       </div>
 
-      <div className="mb-8 grid grid-cols-1 md:grid-cols-3 gap-6 items-end">
+      <div className="mb-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 items-end">
         <div className="space-y-2">
           <Label htmlFor="depotauswahl">Depotauswahl</Label>
           <Select defaultValue="gesamtbestand">
