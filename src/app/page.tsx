@@ -123,8 +123,10 @@ export default function HomePage() {
             <CardHeader>
               <CardTitle className="text-[hsl(var(--logo-blue))]">Basis Information</CardTitle>
             </CardHeader>
-            <CardContent>
-              <p className="text-muted-foreground">Hier werden Basisinformationen zum Depot angezeigt.</p>
+            <CardContent className="space-y-2">
+              <p><span className="font-medium">Depotvariante:</span> [Platzhalter]</p>
+              <p><span className="font-medium">Depot Bezeichnung:</span> [Platzhalter]</p>
+              <p><span className="font-medium">Depotinhabers:</span> [Platzhalter]</p>
             </CardContent>
           </Card>
         </TabsContent>
@@ -132,4 +134,3 @@ export default function HomePage() {
     </div>
   );
 }
-
