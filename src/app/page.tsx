@@ -179,6 +179,7 @@ export default function HomePage() {
                           checked={vollmacht}
                           onCheckedChange={setVollmacht}
                           aria-label="Vollmacht Ja/Nein"
+                          className="data-[state=checked]:bg-[hsl(var(--logo-blue))]"
                         />
                         <Label htmlFor="vollmacht-switch" className="text-muted-foreground">
                           {vollmacht ? "Ja" : "Nein"}
