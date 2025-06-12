@@ -1,6 +1,7 @@
 
 'use client';
 
+import { useState, useEffect } from 'react';
 import { Settings, CalendarDays, Info, ArrowUp } from 'lucide-react';
 import Image from 'next/image';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
@@ -10,6 +11,7 @@ import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import { Switch } from "@/components/ui/switch";
 import { PieChart, Pie, Cell } from 'recharts';
 import {
   ChartContainer,
@@ -37,6 +39,8 @@ const vermoegensaufbauChartConfig = {
 
 
 export default function HomePage() {
+  const [vollmacht, setVollmacht] = useState(false);
+
   return (
     <div className="container mx-auto py-8 px-4 md:px-8">
       <div className="flex items-center justify-start space-x-2 mb-8">
@@ -169,7 +173,17 @@ export default function HomePage() {
                       <span className="text-muted-foreground">[Daten hier]</span>
 
                       <span className="font-medium">Vollmacht (Ja/Nein):</span>
-                      <span className="text-muted-foreground">[Daten hier]</span>
+                       <div className="flex items-center space-x-2">
+                        <Switch
+                          id="vollmacht-switch"
+                          checked={vollmacht}
+                          onCheckedChange={setVollmacht}
+                          aria-label="Vollmacht Ja/Nein"
+                        />
+                        <Label htmlFor="vollmacht-switch" className="text-muted-foreground">
+                          {vollmacht ? "Ja" : "Nein"}
+                        </Label>
+                      </div>
 
                       <span className="font-medium">Zahlpläne:</span>
                       <span className="text-muted-foreground">[Daten hier]</span>
