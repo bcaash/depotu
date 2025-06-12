@@ -1,7 +1,7 @@
 
 'use client';
 
-import { Settings, CalendarDays, Info, ArrowUp, SlidersHorizontal } from 'lucide-react';
+import { Settings, CalendarDays, Info, ArrowUp } from 'lucide-react';
 import Image from 'next/image';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
@@ -90,7 +90,7 @@ export default function HomePage() {
         </div>
       </div>
 
-      <Tabs defaultValue="depot-info" className="w-full">
+      <Tabs defaultValue="overview" className="w-full">
         <TabsList className="grid w-full grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7">
           <TabsTrigger value="overview">Übersicht</TabsTrigger>
           <TabsTrigger value="performance">Wertentwicklung</TabsTrigger>
@@ -119,127 +119,11 @@ export default function HomePage() {
           <p className="p-4 text-center text-muted-foreground">Inhalt für Struktur.</p>
         </TabsContent>
         <TabsContent value="depot-info" className="py-6 space-y-6">
-          <Card className="w-full shadow-lg rounded-lg overflow-hidden">
-            <CardHeader className="p-4 border-b">
-              <div className="flex justify-between items-start">
-                <div>
-                  <CardTitle className="text-xl font-semibold text-foreground">Vermögensaufbau</CardTitle>
-                  <CardDescription>3 Asset Klassen · 36 Holdings · Öffentlich - EUR</CardDescription>
-                </div>
-                {/* Placeholder for top-right buttons: Teilen, Alle Assetklassen, Seit Kauf */}
-                {/* <div className="flex space-x-2"> <Button variant="ghost" size="sm">Teilen</Button> ... </div> */}
-              </div>
-            </CardHeader>
-            <CardContent className="p-4 md:p-6">
-              <div className="grid md:grid-cols-12 gap-6 items-center">
-                <div className="md:col-span-4 lg:col-span-3 flex flex-col items-center justify-center">
-                  <div className="w-full h-56 md:h-64 relative">
-                    <ChartContainer config={vermoegensaufbauChartConfig} className="w-full h-full min-h-[200px] md:min-h-[250px]">
-                      <PieChart>
-                        <ChartTooltip
-                          cursor={false}
-                          content={<ChartTooltipContent hideLabel nameKey="asset" />}
-                        />
-                        <Pie
-                          data={vermoegensaufbauChartData}
-                          dataKey="value"
-                          nameKey="asset"
-                          innerRadius="60%"
-                          outerRadius="80%"
-                          strokeWidth={2}
-                          paddingAngle={1}
-                        >
-                          {vermoegensaufbauChartData.map((entry, index) => (
-                            <Cell key={`cell-${index}`} fill={entry.fill} className="focus:outline-none ring-0" />
-                          ))}
-                        </Pie>
-                      </PieChart>
-                    </ChartContainer>
-                    <div className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none">
-                      <span className="text-3xl font-bold text-foreground">183.446€</span>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="md:col-span-8 lg:col-span-9 space-y-4 md:space-y-6">
-                  <div>
-                    <p className="text-sm text-muted-foreground">Portfolio-Wert</p>
-                    <div className="flex items-baseline space-x-2">
-                      <h2 className="text-4xl font-bold text-foreground tracking-tight">183.446,13€</h2>
-                      <span className="text-base text-green-600 font-semibold flex items-center">
-                        <ArrowUp className="h-4 w-4 mr-1" />
-                        15,34%
-                      </span>
-                    </div>
-                    <div className="mt-2 space-y-0.5">
-                      <div className="flex justify-between text-sm">
-                        <span className="text-muted-foreground">Wert am 17.12.2017</span>
-                        <span className="text-foreground font-medium">0,00€</span>
-                      </div>
-                      <div className="flex justify-between text-sm">
-                        <span className="text-muted-foreground">Investiert</span>
-                        <span className="text-foreground font-medium">133.042,67€</span>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 pt-2">
-                    <div>
-                      <p className="text-sm text-muted-foreground">Kursgewinn</p>
-                      <p className="text-xl font-semibold text-foreground">24.403,46€</p>
-                    </div>
-                    <div>
-                      <p className="text-sm text-muted-foreground">IZF</p>
-                      <p className="text-xl font-semibold text-green-600">20,38%</p>
-                    </div>
-                    <div className="sm:col-span-1">
-                      <p className="text-sm text-muted-foreground">Dividenden Realisiert</p>
-                      <p className="text-xl font-semibold text-foreground">6.142,07€</p>
-                      <p className="text-xs text-muted-foreground">46.327,03€ real. Gesamt</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
-
-          <div className="grid md:grid-cols-2 gap-6">
-            <Card className="shadow-lg rounded-lg">
-              <CardContent className="p-4">
-                <Tabs defaultValue="dividenden" className="w-full">
-                  <TabsList className="grid w-full grid-cols-2 mb-4">
-                    <TabsTrigger value="wert-entwicklung">Wert-Entwicklung</TabsTrigger>
-                    <TabsTrigger value="dividenden">Dividenden</TabsTrigger>
-                  </TabsList>
-                  <TabsContent value="wert-entwicklung">
-                    <div className="h-64 bg-muted rounded-md flex items-center justify-center p-4">
-                       <Image src="https://placehold.co/400x200.png" alt="Wert-Entwicklung Chart Placeholder" data-ai-hint="finance line chart" width={400} height={200} className="w-full h-auto object-contain rounded-md"/>
-                    </div>
-                  </TabsContent>
-                  <TabsContent value="dividenden">
-                    <div className="h-64 bg-muted rounded-md flex items-center justify-center p-4">
-                      <Image src="https://placehold.co/400x200.png" alt="Dividenden Chart Placeholder" data-ai-hint="finance bar chart" width={400} height={200} className="w-full h-auto object-contain rounded-md"/>
-                    </div>
-                    <p className="text-xs text-muted-foreground mt-2 text-center">Umfassendere Auswertungen sind auf dem <Button variant="link" className="p-0 h-auto text-primary text-xs">Dividenden Dashboard</Button> zu finden.</p>
-                  </TabsContent>
-                </Tabs>
-              </CardContent>
-            </Card>
-
-            <Card className="shadow-lg rounded-lg">
-              <CardHeader className="p-4">
-                <CardTitle className="text-lg text-primary">% Performance</CardTitle>
-              </CardHeader>
-              <CardContent className="p-4 pt-0">
-                <div className="h-64 bg-muted rounded-md flex items-center justify-center p-4">
-                  <Image src="https://placehold.co/400x200.png" alt="Performance Chart Placeholder" data-ai-hint="finance area graph" width={400} height={200} className="w-full h-auto object-contain rounded-md"/>
-                </div>
-                <Button variant="link" className="p-0 h-auto text-primary text-xs mt-2">VERGLEICHEN</Button>
-              </CardContent>
-            </Card>
-          </div>
+          {/* Content for Depot Info is removed */}
+          <p className="p-4 text-center text-muted-foreground">Inhalt für Depot Info wird hier angezeigt.</p>
         </TabsContent>
       </Tabs>
     </div>
   );
 }
+
