@@ -1,7 +1,7 @@
 
 import Link from 'next/link';
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
-import { User, Settings } from 'lucide-react';
+import { User } from 'lucide-react';
 
 export function Header() {
   return (
@@ -37,10 +37,7 @@ export function Header() {
           </svg>
         </Link>
 
-        <div className="flex items-center space-x-2">
-          <h1 className="text-xl font-semibold text-foreground">Vermögensübersicht</h1>
-          <Settings className="h-5 w-5 text-primary cursor-pointer" />
-        </div>
+        {/* Elements moved to page.tsx */}
 
         <Avatar>
           <AvatarFallback>
