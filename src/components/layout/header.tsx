@@ -1,6 +1,6 @@
 
 import Link from 'next/link';
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { User } from 'lucide-react';
 
 export function Header() {
@@ -37,7 +37,6 @@ export function Header() {
           </svg>
         </Link>
         <Avatar>
-          <AvatarImage src="https://placehold.co/40x40.png" alt="User profile" data-ai-hint="person avatar" />
           <AvatarFallback>
             <User className="h-5 w-5" />
           </AvatarFallback>
