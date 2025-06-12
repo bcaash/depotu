@@ -1,7 +1,7 @@
 
 'use client';
 
-import { Settings, CalendarDays, Info, ArrowUp } from 'lucide-react';
+import { Settings, CalendarDays, Info, ArrowUp, SlidersHorizontal } from 'lucide-react';
 import Image from 'next/image';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
@@ -119,11 +119,16 @@ export default function HomePage() {
           <p className="p-4 text-center text-muted-foreground">Inhalt für Struktur.</p>
         </TabsContent>
         <TabsContent value="depot-info" className="py-6 space-y-6">
-          {/* Content for Depot Info is removed */}
-          <p className="p-4 text-center text-muted-foreground">Inhalt für Depot Info wird hier angezeigt.</p>
+          <Card>
+            <CardHeader>
+              <CardTitle className="text-primary">Basis Information</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <p className="text-muted-foreground">Hier werden Basisinformationen zum Depot angezeigt.</p>
+            </CardContent>
+          </Card>
         </TabsContent>
       </Tabs>
     </div>
   );
 }
-
