@@ -5,7 +5,7 @@ import { User } from 'lucide-react';
 
 export function Header() {
   return (
-    <header className="py-6 px-4 md:px-8 border-b border-border/50 sticky top-0 bg-background/80 backdrop-blur-md z-50">
+    <header className="py-6 px-4 md:px-8 border-b border-border/50 sticky top-0 bg-background/80 backdrop-blur-md z-50 shadow-md">
       <div className="container mx-auto flex justify-between items-center">
         <Link href="/" className="flex items-center">
           <svg
