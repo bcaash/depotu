@@ -39,7 +39,7 @@ export default function HomePage() {
           </div>
         </div>
 
-        <div className="flex flex-col items-start space-y-2 md:col-start-3 lg:col-start-auto">
+        <div className="flex flex-col items-start space-y-2">
            <div className="flex items-center space-x-2">
             <Button variant="link" className="p-0 h-auto text-primary">Benchmark</Button>
             <SlidersHorizontal className="h-4 w-4 text-muted-foreground" />
