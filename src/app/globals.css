@@ -4,7 +4,7 @@
 
 @layer base {
   :root {
-    --background: 0 0% 98%; /* #FAFAFA */
+    --background: 0 0% 98%;
     --foreground: 0 0% 3.9%;
 
     --card: 0 0% 100%;
@@ -13,8 +13,8 @@
     --popover: 0 0% 100%;
     --popover-foreground: 0 0% 3.9%;
 
-    --primary: 200 40% 78.8%; /* Pale Blue #ADD8E6 */
-    --primary-foreground: 0 0% 3.9%; /* Dark text on Pale Blue */
+    --primary: 200 40% 78.8%;
+    --primary-foreground: 0 0% 3.9%;
 
     --secondary: 0 0% 96.1%;
     --secondary-foreground: 0 0% 9%;
@@ -22,15 +22,15 @@
     --muted: 0 0% 96.1%;
     --muted-foreground: 0 0% 45.1%;
 
-    --accent: 0 0% 82.7%; /* Soft Muted Light Gray #D3D3D3 */
-    --accent-foreground: 0 0% 3.9%; /* Dark text on Light Gray */
+    --accent: 0 0% 82.7%;
+    --accent-foreground: 0 0% 3.9%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
 
     --border: 0 0% 89.8%;
     --input: 0 0% 89.8%;
-    --ring: 200 40% 78.8%; /* Pale Blue for focus rings */
+    --ring: 200 40% 78.8%;
 
     --chart-1: 12 76% 61%;
     --chart-2: 173 58% 39%;
@@ -47,10 +47,13 @@
     --sidebar-accent-foreground: 240 5.9% 10%;
     --sidebar-border: 220 13% 91%;
     --sidebar-ring: 217.2 91.2% 59.8%;
+
+    --logo-blue: 195 100% 47%;
+    --logo-red: 358 86% 52%;
   }
 
   .dark {
-    --background: 0 0% 10%; /* Dark Gray */
+    --background: 0 0% 10%;
     --foreground: 0 0% 95%;
 
     --card: 0 0% 12%;
@@ -59,7 +62,7 @@
     --popover: 0 0% 12%;
     --popover-foreground: 0 0% 95%;
 
-    --primary: 200 30% 40%; /* Darker Pale Blue */
+    --primary: 200 30% 40%;
     --primary-foreground: 0 0% 95%;
 
     --secondary: 0 0% 14.9%;
@@ -68,7 +71,7 @@
     --muted: 0 0% 14.9%;
     --muted-foreground: 0 0% 63.9%;
 
-    --accent: 0 0% 25%; /* Darker Light Gray */
+    --accent: 0 0% 25%;
     --accent-foreground: 0 0% 95%;
 
     --destructive: 0 62.8% 30.6%;
@@ -76,7 +79,7 @@
 
     --border: 0 0% 20%;
     --input: 0 0% 20%;
-    --ring: 200 30% 50%; /* Dark mode Pale Blue for rings */
+    --ring: 200 30% 50%;
     
     --chart-1: 220 70% 50%;
     --chart-2: 160 60% 45%;
@@ -92,6 +95,9 @@
     --sidebar-accent-foreground: 240 4.8% 95.9%;
     --sidebar-border: 240 3.7% 15.9%;
     --sidebar-ring: 217.2 91.2% 59.8%;
+
+    --logo-blue: 195 100% 47%;
+    --logo-red: 358 86% 52%;
   }
 }
 
