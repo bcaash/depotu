@@ -1,7 +1,7 @@
 
 'use client';
 
-import { Settings, CalendarDays, Info, ArrowUp, SlidersHorizontal } from 'lucide-react';
+import { Settings, CalendarDays, Info, ArrowUp } from 'lucide-react';
 import Image from 'next/image';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
@@ -9,6 +9,7 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { PieChart, Pie, Cell } from 'recharts';
 import {
   ChartContainer,
@@ -119,16 +120,24 @@ export default function HomePage() {
           <p className="p-4 text-center text-muted-foreground">Inhalt für Struktur.</p>
         </TabsContent>
         <TabsContent value="depot-info" className="py-6 space-y-6">
-          <Card>
-            <CardHeader>
-              <CardTitle className="text-[hsl(var(--logo-blue))]">Basis Information</CardTitle>
-            </CardHeader>
-            <CardContent className="space-y-2">
-              <p><span className="font-medium">Depotvariante:</span> [Platzhalter]</p>
-              <p><span className="font-medium">Depot Bezeichnung:</span> [Platzhalter]</p>
-              <p><span className="font-medium">Depotinhabers:</span> [Platzhalter]</p>
-            </CardContent>
-          </Card>
+          <Accordion type="single" collapsible className="w-full">
+            <AccordionItem value="basis-information" className="border-b-0">
+               <Card>
+                <AccordionTrigger className="w-full p-6 hover:no-underline">
+                  <CardHeader className="p-0">
+                    <CardTitle className="text-[hsl(var(--logo-blue))]">Basis Information</CardTitle>
+                  </CardHeader>
+                </AccordionTrigger>
+                <AccordionContent>
+                  <CardContent className="space-y-2 pt-0">
+                    <p><span className="font-medium">Depotvariante:</span> [Platzhalter]</p>
+                    <p><span className="font-medium">Depot Bezeichnung:</span> [Platzhalter]</p>
+                    <p><span className="font-medium">Depotinhabers:</span> [Platzhalter]</p>
+                  </CardContent>
+                </AccordionContent>
+              </Card>
+            </AccordionItem>
+          </Accordion>
         </TabsContent>
       </Tabs>
     </div>
