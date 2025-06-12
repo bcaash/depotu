@@ -2,7 +2,6 @@ import type {Metadata} from 'next';
 import './globals.css';
 import { Toaster } from "@/components/ui/toaster";
 import { Header } from '@/components/layout/header';
-import { Footer } from '@/components/layout/footer';
 
 export const metadata: Metadata = {
   title: 'CleanSlate',
@@ -26,7 +25,6 @@ export default function RootLayout({
         <main className="flex-grow">
           {children}
         </main>
-        <Footer />
         <Toaster />
       </body>
     </html>
