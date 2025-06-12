@@ -1,4 +1,7 @@
+
 import Link from 'next/link';
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { User } from 'lucide-react';
 
 export function Header() {
   return (
@@ -33,11 +36,12 @@ export function Header() {
             <circle cx="183" cy="40" r="9" className="diva-dot"/>
           </svg>
         </Link>
-        <nav className="space-x-4">
-          <Link href="#features" className="text-muted-foreground hover:text-primary transition-colors">Features</Link>
-          <Link href="#pricing" className="text-muted-foreground hover:text-primary transition-colors">Pricing</Link>
-          <Link href="/contact" className="text-muted-foreground hover:text-primary transition-colors">Contact</Link>
-        </nav>
+        <Avatar>
+          <AvatarImage src="https://placehold.co/40x40.png" alt="User profile" data-ai-hint="person avatar" />
+          <AvatarFallback>
+            <User className="h-5 w-5" />
+          </AvatarFallback>
+        </Avatar>
       </div>
     </header>
   );
