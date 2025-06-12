@@ -33,13 +33,11 @@ export function Header() {
             <circle cx="183" cy="40" r="9" className="diva-dot"/>
           </svg>
         </Link>
-        {/* Navigation links can be added here if needed
         <nav className="space-x-4">
           <Link href="#features" className="text-muted-foreground hover:text-primary transition-colors">Features</Link>
           <Link href="#pricing" className="text-muted-foreground hover:text-primary transition-colors">Pricing</Link>
           <Link href="/contact" className="text-muted-foreground hover:text-primary transition-colors">Contact</Link>
         </nav>
-        */}
       </div>
     </header>
   );
