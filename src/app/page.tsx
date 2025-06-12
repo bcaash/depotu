@@ -144,7 +144,10 @@ export default function HomePage() {
                       </Select>
                     </div>
                     <div className="space-y-1">
-                      <Label className="font-medium">Depot Bezeichnung:</Label>
+                      <Label className="font-medium flex items-center">
+                        Depot Bezeichnung:
+                        <Info className="h-4 w-4 ml-2 text-primary cursor-pointer" />
+                      </Label>
                       <p className="text-sm text-muted-foreground">[Platzhalter für Beschreibung der Depot Bezeichnung]</p>
                     </div>
                      <div className="space-y-1">
