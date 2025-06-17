@@ -99,7 +99,7 @@ export const RiskGaugeChart: FC<RiskGaugeChartProps> = ({ value }) => {
   }
 
   return (
-    <div className="relative w-full max-w-[200px] mx-auto">
+    <div className="relative w-full max-w-[200px]">
       <ChartContainer
         config={chartConfig}
         className="aspect-[2/1] h-auto w-full"
