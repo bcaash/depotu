@@ -167,7 +167,7 @@ export default function HomePage() {
                       <span className="text-muted-foreground">Aktiv</span>
 
                       <span className="font-medium">Risikoklasse:</span>
-                      <div className="pt-2 pb-6">
+                      <div className="pb-6">
                         <RiskGaugeChart value={25} />
                       </div>
 
