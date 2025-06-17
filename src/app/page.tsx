@@ -2,14 +2,12 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { Settings, CalendarDays, Info, ArrowUp } from 'lucide-react';
-import Image from 'next/image';
+import { Settings, CalendarDays, Info } from 'lucide-react';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Input } from "@/components/ui/input";
-import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Switch } from "@/components/ui/switch";
 import { RiskGaugeChart } from '@/components/charts/RiskGaugeChart';
@@ -110,48 +108,39 @@ export default function HomePage() {
                   </CardHeader>
                 </AccordionTrigger>
                 <AccordionContent>
-                  <CardContent className="grid md:grid-cols-2 gap-x-8 gap-y-4 pt-0 text-sm">
+                  <CardContent className="grid md:grid-cols-2 gap-x-8 gap-y-3 pt-0 text-sm items-start">
                     <div className="grid grid-cols-[auto_1fr] gap-x-4 gap-y-3 items-start">
                       <span className="font-medium">Depotart:</span>
                       <span className="text-muted-foreground">Standarddepot</span>
 
                       <span className="font-medium">Depotbezeichnung:</span>
                       <span className="text-muted-foreground">Musterdepot</span>
-
+                      
                       <span className="font-medium">Privat/Firmendepot:</span>
                       <span className="text-muted-foreground">Privat</span>
 
                       <span className="font-medium">Depotinhaber:</span>
                       <span className="text-muted-foreground">Max Beispiel</span>
 
+                      <span className="font-medium">Depot Eröffnungsdatum:</span>
+                      <span className="text-muted-foreground">01.01.2015</span>
+
+                      <span className="font-medium">Letzte Depotänderung:</span>
+                      <span className="text-muted-foreground">01.05.2025</span>
+                                            
+                      <span className="font-medium">Letzte Transaktion:</span>
+                      <span className="text-muted-foreground">Kauf - 02.06.2025</span>
+                    </div>
+                    <div className="grid grid-cols-[auto_1fr] gap-x-4 gap-y-3 items-start">
                       <span className="font-medium">UND/ODER Depot:</span>
                       <span className="text-muted-foreground">UND</span>
 
-                      <span className="font-medium">Verfügungsbeschränkung / Pfändung:</span>
-                      <span className="text-muted-foreground">Nein</span>
-                      
                       <span className="font-medium">VL Vermerk:</span>
                       <span className="text-muted-foreground">Gesperrt</span>
 
                       <span className="font-medium">Wiederanlage:</span>
                       <span className="text-muted-foreground">Aktiv</span>
                       
-                      <span className="font-medium">Bevollmächtigter:</span>
-                      <span className="text-muted-foreground">Anna Mustermann</span>
-                    </div>
-                    <div className="grid grid-cols-[auto_1fr] gap-x-4 gap-y-3 items-start">
-                      <span className="font-medium">Depot Eröffnungsdatum:</span>
-                      <span className="text-muted-foreground">01.01.2015</span>
-
-                      <span className="font-medium">Depotlöschung vorgemerkt:</span>
-                      <span className="text-muted-foreground">Nein</span>
-
-                      <span className="font-medium">Derivate-Handelserlaubnis:</span>
-                      <span className="text-muted-foreground">Aktiv</span>
-
-                      <span className="font-medium">Letzte Depotänderung:</span>
-                      <span className="text-muted-foreground">01.05.2025</span>
-
                       <span className="font-medium">Vollmacht (Ja/Nein):</span>
                        <div className="flex items-center space-x-2">
                         <Switch
@@ -166,6 +155,15 @@ export default function HomePage() {
                         </Label>
                       </div>
 
+                      <span className="font-medium">Bevollmächtigter:</span>
+                      <span className="text-muted-foreground">Anna Mustermann</span>
+
+                      <span className="font-medium">Verfügungsbeschränkung / Pfändung:</span>
+                      <span className="text-muted-foreground">Nein</span>
+                      
+                      <span className="font-medium">Derivate-Handelserlaubnis:</span>
+                      <span className="text-muted-foreground">Aktiv</span>
+
                       <span className="font-medium">Zahlpläne:</span>
                       <span className="text-muted-foreground">Aktiv</span>
 
@@ -173,9 +171,9 @@ export default function HomePage() {
                       <div className="-ml-4">
                         <RiskGaugeChart value={25} />
                       </div>
-
-                      <span className="font-medium">Letzte Transaktion:</span>
-                      <span className="text-muted-foreground">Kauf - 02.06.2025</span>
+                      
+                      <span className="font-medium">Depotlöschung vorgemerkt:</span>
+                      <span className="text-muted-foreground">Nein</span>
                     </div>
                   </CardContent>
                 </AccordionContent>
