@@ -2,7 +2,7 @@
 'use client';
 
 import type { FC } from 'react';
-import { PieChart, Pie, Cell, ResponsiveContainer, Text } from 'recharts';
+import { PieChart, Pie, Cell, ResponsiveContainer, Customized } from 'recharts';
 import { ChartContainer, type ChartConfig } from "@/components/ui/chart";
 
 interface RiskGaugeChartProps {
@@ -34,7 +34,7 @@ const chartConfig = {
 } satisfies ChartConfig;
 
 const Needle: FC<{ cx?: number, cy?: number, radius?: number, angle?: number, needleColor?: string }> = ({ cx, cy, radius, angle, needleColor }) => {
-  if (cx === undefined || cy === undefined || radius === undefined || angle === undefined) {
+  if (cx === undefined || cy === undefined || radius === undefined || angle === undefined || radius <= 0) {
     return null;
   }
 
@@ -54,16 +54,15 @@ const Needle: FC<{ cx?: number, cy?: number, radius?: number, angle?: number, ne
 };
 
 const SegmentLabel: FC<any> = (props) => {
-  const { cx, cy, midAngle, outerRadius, name, payload } = props;
+  const { cx, cy, midAngle, outerRadius, name } = props;
   const RADIAN = Math.PI / 180;
-  const radius = outerRadius * 0.75; // Adjust label position
+  const radius = outerRadius * 0.75; 
   const x = cx + radius * Math.cos(-midAngle * RADIAN);
   const y = cy + radius * Math.sin(-midAngle * RADIAN);
   let dy = 0;
-  if (name === 'Medium') dy = -5; // Adjust vertical position for "Medium"
+  if (name === 'Medium') dy = -5; 
   else if (name === 'Low') dy = 10;
   else if (name === 'High') dy = 10;
-
 
   return (
     <text
@@ -85,7 +84,6 @@ const SegmentLabel: FC<any> = (props) => {
 
 export const RiskGaugeChart: FC<RiskGaugeChartProps> = ({ value }) => {
   const normalizedValue = Math.min(Math.max(value, 0), 100);
-  // Convert value (0-100) to angle (180 deg for 0, 0 deg for 100)
   const needleAngle = 180 - (normalizedValue / 100) * 180;
 
   return (
@@ -99,7 +97,7 @@ export const RiskGaugeChart: FC<RiskGaugeChartProps> = ({ value }) => {
             <Pie
               data={segments}
               cx="50%"
-              cy="100%" // Pivot at the bottom center of the semicircle
+              cy="100%" 
               startAngle={180}
               endAngle={0}
               innerRadius="50%"
@@ -114,14 +112,18 @@ export const RiskGaugeChart: FC<RiskGaugeChartProps> = ({ value }) => {
               ))}
             </Pie>
             <Customized component={
-              (props) => {
-                const { cx, cy, outerRadius } = props.viewBox || {cx:0, cy:0, width:0, height:0, outerRadius:0};
-                // Recharts types for Customized component are tricky, this recalculates based on common patterns
-                const chartCx = props.width / 2;
-                const chartCy = props.height; // Since cy="100%"
-                const chartRadius = Math.min(props.width / 2, props.height);
+              (chartProps: { width?: number; height?: number; [key: string]: any }) => {
+                const { width, height } = chartProps;
 
-                return <Needle cx={chartCx} cy={chartCy} radius={chartRadius} angle={needleAngle} needleColor="hsl(var(--foreground))"/>
+                if (typeof width !== 'number' || typeof height !== 'number' || width <= 0 || height <= 0) {
+                  return null; 
+                }
+
+                const chartCx = width / 2;
+                const chartCy = height; 
+                const chartRadius = Math.min(width / 2, height); 
+
+                return <Needle cx={chartCx} cy={chartCy} radius={chartRadius} angle={needleAngle} needleColor="hsl(var(--foreground))"/>;
               }
             } />
           </PieChart>

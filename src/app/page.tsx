@@ -12,31 +12,7 @@ import { Label } from "@/components/ui/label";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Switch } from "@/components/ui/switch";
-import { PieChart, Pie, Cell, Customized } from 'recharts';
-import {
-  ChartContainer,
-  ChartTooltip,
-  ChartTooltipContent,
-  type ChartConfig,
-} from "@/components/ui/chart";
 import { RiskGaugeChart } from '@/components/charts/RiskGaugeChart';
-
-const vermoegensaufbauChartData = [
-  { asset: "Asset A", value: 40000, fill: "hsl(var(--chart-1))" },
-  { asset: "Asset B", value: 30000, fill: "hsl(var(--chart-2))" },
-  { asset: "Asset C", value: 30000, fill: "hsl(var(--chart-3))" },
-  { asset: "Asset D", value: 20000, fill: "hsl(var(--chart-4))" },
-  { asset: "Asset E", value: 63446, fill: "hsl(var(--chart-5))" },
-];
-
-const vermoegensaufbauChartConfig = {
-  value: { label: "Value" },
-  "Asset A": { label: "Asset A", color: "hsl(var(--chart-1))" },
-  "Asset B": { label: "Asset B", color: "hsl(var(--chart-2))" },
-  "Asset C": { label: "Asset C", color: "hsl(var(--chart-3))" },
-  "Asset D": { label: "Asset D", color: "hsl(var(--chart-4))" },
-  "Asset E": { label: "Asset E", color: "hsl(var(--chart-5))" },
-} satisfies ChartConfig;
 
 
 export default function HomePage() {
@@ -125,7 +101,7 @@ export default function HomePage() {
           <p className="p-4 text-center text-muted-foreground">Inhalt für Struktur.</p>
         </TabsContent>
         <TabsContent value="depot-info" className="py-6 space-y-6">
-          <Accordion type="single" collapsible className="w-full space-y-6">
+          <Accordion type="single" collapsible className="w-full space-y-6" defaultValue="basis-information">
             <AccordionItem value="basis-information" className="border-b-0">
                <Card>
                 <AccordionTrigger className="w-full p-6 hover:no-underline">
@@ -191,7 +167,7 @@ export default function HomePage() {
                       <span className="text-muted-foreground">Aktiv</span>
 
                       <span className="font-medium">Risikoklasse:</span>
-                      <div className="pt-2 pb-6"> {/* Added padding to make space for the % value below gauge */}
+                      <div className="pt-2 pb-6">
                         <RiskGaugeChart value={25} />
                       </div>
 
