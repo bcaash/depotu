@@ -54,35 +54,6 @@ const Needle: FC<{ cx?: number, cy?: number, radius?: number, angle?: number, ne
   );
 };
 
-const SegmentLabel: FC<any> = (props) => {
-  const { cx, cy, midAngle, outerRadius, name } = props;
-  const RADIAN = Math.PI / 180;
-  const radius = outerRadius * 0.75;
-  const x = cx + radius * Math.cos(-midAngle * RADIAN);
-  const y = cy + radius * Math.sin(-midAngle * RADIAN);
-  let dy = 0;
-  if (name === 'Medium') dy = -5;
-  else if (name === 'Low') dy = 10;
-  else if (name === 'High') dy = 10;
-
-  return (
-    <text
-      x={x}
-      y={y + dy}
-      fill="white"
-      textAnchor={x > cx ? 'start' : 'end'}
-      dominantBaseline="central"
-      fontWeight="bold"
-      fontSize="10px"
-      stroke="#555"
-      strokeWidth="0.3px"
-    >
-      {name.toUpperCase()}
-    </text>
-  );
-};
-
-
 export const RiskGaugeChart: FC<RiskGaugeChartProps> = ({ value }) => {
   const [isMounted, setIsMounted] = useState(false);
 
@@ -117,7 +88,7 @@ export const RiskGaugeChart: FC<RiskGaugeChartProps> = ({ value }) => {
               paddingAngle={2}
               dataKey="value"
               labelLine={false}
-              label={<SegmentLabel />}
+              label={false} // Removed segment labels
             >
               {segments.map((entry, index) => (
                 <Cell key={`cell-${index}`} fill={entry.color} stroke={entry.color} />
