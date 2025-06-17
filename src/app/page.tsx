@@ -208,16 +208,21 @@ export default function HomePage() {
                       <span className="text-muted-foreground">Anna Mustermann</span>
 
                       <span className="font-medium">Verfügungsbeschränkung / Pfändung:</span>
-                      <CustomToggleSwitch
-                          id="verfuegungsbeschraenkung-switch"
-                          checked={verfuegungsbeschraenkungActive}
-                          onCheckedChange={setVerfuegungsbeschraenkungActive}
-                          ariaLabel="Verfügungsbeschränkung / Pfändung Ja/Nein"
-                          activeBackgroundColor="bg-[hsl(var(--logo-blue))]"
-                          activeIconColor="text-white"
-                          inactiveBackgroundColor="bg-input"
-                          inactiveIconColor="text-muted-foreground"
-                        />
+                      <div className="flex items-center space-x-2">
+                        <CustomToggleSwitch
+                            id="verfuegungsbeschraenkung-switch"
+                            checked={verfuegungsbeschraenkungActive}
+                            onCheckedChange={setVerfuegungsbeschraenkungActive}
+                            ariaLabel="Verfügungsbeschränkung / Pfändung Ja/Nein"
+                            activeBackgroundColor="bg-[hsl(var(--logo-blue))]"
+                            activeIconColor="text-white"
+                            inactiveBackgroundColor="bg-input"
+                            inactiveIconColor="text-muted-foreground"
+                          />
+                          <Label htmlFor="verfuegungsbeschraenkung-switch" className="text-muted-foreground">
+                            {verfuegungsbeschraenkungActive ? "Ja" : "Nein"}
+                          </Label>
+                        </div>
                       
                       <span className="font-medium">Derivate-Handelserlaubnis:</span>
                       <CustomToggleSwitch
@@ -241,16 +246,21 @@ export default function HomePage() {
                       </div>
                       
                       <span className="font-medium">Depotlöschung vorgemerkt:</span>
-                      <CustomToggleSwitch
-                          id="depotloeschung-switch"
-                          checked={depotloeschungVorgemerktActive}
-                          onCheckedChange={setDepotloeschungVorgemerktActive}
-                          ariaLabel="Depotlöschung vorgemerkt Ja/Nein"
-                          activeBackgroundColor="bg-[hsl(var(--logo-blue))]"
-                          activeIconColor="text-white"
-                          inactiveBackgroundColor="bg-input"
-                          inactiveIconColor="text-muted-foreground"
-                        />
+                      <div className="flex items-center space-x-2">
+                        <CustomToggleSwitch
+                            id="depotloeschung-switch"
+                            checked={depotloeschungVorgemerktActive}
+                            onCheckedChange={setDepotloeschungVorgemerktActive}
+                            ariaLabel="Depotlöschung vorgemerkt Ja/Nein"
+                            activeBackgroundColor="bg-[hsl(var(--logo-blue))]"
+                            activeIconColor="text-white"
+                            inactiveBackgroundColor="bg-input"
+                            inactiveIconColor="text-muted-foreground"
+                          />
+                        <Label htmlFor="depotloeschung-switch" className="text-muted-foreground">
+                          {depotloeschungVorgemerktActive ? "Ja" : "Nein"}
+                        </Label>
+                      </div>
                     </div>
                   </CardContent>
                 </AccordionContent>
@@ -308,17 +318,22 @@ export default function HomePage() {
                 </AccordionTrigger>
                 <AccordionContent>
                   <CardContent className="grid grid-cols-[auto_1fr] gap-x-8 gap-y-3 pt-0 text-sm items-start">
-                    <span className="font-medium">FreistellungsAuftrag:</span>
-                    <CustomToggleSwitch
-                        id="freistellungsauftrag-switch"
-                        checked={freistellungsAuftragActive}
-                        onCheckedChange={setFreistellungsAuftragActive}
-                        ariaLabel="FreistellungsAuftrag Ja/Nein"
-                        activeBackgroundColor="bg-[hsl(var(--logo-blue))]"
-                        activeIconColor="text-white"
-                        inactiveBackgroundColor="bg-input"
-                        inactiveIconColor="text-muted-foreground"
-                      />
+                     <span className="font-medium">FreistellungsAuftrag:</span>
+                      <div className="flex items-center space-x-2">
+                        <CustomToggleSwitch
+                            id="freistellungsauftrag-switch"
+                            checked={freistellungsAuftragActive}
+                            onCheckedChange={setFreistellungsAuftragActive}
+                            ariaLabel="FreistellungsAuftrag Ja/Nein"
+                            activeBackgroundColor="bg-[hsl(var(--logo-blue))]"
+                            activeIconColor="text-white"
+                            inactiveBackgroundColor="bg-input"
+                            inactiveIconColor="text-muted-foreground"
+                          />
+                          <Label htmlFor="freistellungsauftrag-switch" className="text-muted-foreground">
+                            {freistellungsAuftragActive ? "Ja" : "Nein"}
+                          </Label>
+                      </div>
 
                     <span className="font-medium">FreistellungsAuftrag von/bis:</span>
                     <span className="text-muted-foreground">01.01.2025/unbegrenzt</span>
@@ -352,70 +367,95 @@ export default function HomePage() {
                     <span className="text-muted-foreground">Max Beispiel</span>
 
                     <span className="font-medium">Sperrvermerk:</span>
-                     <CustomToggleSwitch
-                        id="sperrvermerk-switch"
-                        checked={sperrvermerkActive}
-                        onCheckedChange={setSperrvermerkActive}
-                        ariaLabel="Sperrvermerk Ja/Nein"
-                        activeBackgroundColor="bg-[hsl(var(--logo-blue))]"
-                        activeIconColor="text-white"
-                        inactiveBackgroundColor="bg-input"
-                        inactiveIconColor="text-muted-foreground"
-                      />
+                     <div className="flex items-center space-x-2">
+                        <CustomToggleSwitch
+                          id="sperrvermerk-switch"
+                          checked={sperrvermerkActive}
+                          onCheckedChange={setSperrvermerkActive}
+                          ariaLabel="Sperrvermerk Ja/Nein"
+                          activeBackgroundColor="bg-[hsl(var(--logo-blue))]"
+                          activeIconColor="text-white"
+                          inactiveBackgroundColor="bg-input"
+                          inactiveIconColor="text-muted-foreground"
+                        />
+                        <Label htmlFor="sperrvermerk-switch" className="text-muted-foreground">
+                          {sperrvermerkActive ? "Ja" : "Nein"}
+                        </Label>
+                      </div>
 
                     <span className="font-medium">Erbenvermerk:</span>
-                    <CustomToggleSwitch
-                        id="erbenvermerk-switch"
-                        checked={erbenvermerkActive}
-                        onCheckedChange={setErbenvermerkActive}
-                        ariaLabel="Erbenvermerk Ja/Nein"
-                        activeBackgroundColor="bg-[hsl(var(--logo-blue))]"
-                        activeIconColor="text-white"
-                        inactiveBackgroundColor="bg-input"
-                        inactiveIconColor="text-muted-foreground"
-                      />
+                     <div className="flex items-center space-x-2">
+                        <CustomToggleSwitch
+                          id="erbenvermerk-switch"
+                          checked={erbenvermerkActive}
+                          onCheckedChange={setErbenvermerkActive}
+                          ariaLabel="Erbenvermerk Ja/Nein"
+                          activeBackgroundColor="bg-[hsl(var(--logo-blue))]"
+                          activeIconColor="text-white"
+                          inactiveBackgroundColor="bg-input"
+                          inactiveIconColor="text-muted-foreground"
+                        />
+                        <Label htmlFor="erbenvermerk-switch" className="text-muted-foreground">
+                          {erbenvermerkActive ? "Ja" : "Nein"}
+                        </Label>
+                      </div>
                     
                     <span className="font-medium">Nachlassdepot:</span>
-                    <CustomToggleSwitch
-                        id="nachlassdepot-switch"
-                        checked={nachlassdepotActive}
-                        onCheckedChange={setNachlassdepotActive}
-                        ariaLabel="Nachlassdepot Ja/Nein"
-                        activeBackgroundColor="bg-[hsl(var(--logo-blue))]"
-                        activeIconColor="text-white"
-                        inactiveBackgroundColor="bg-input"
-                        inactiveIconColor="text-muted-foreground"
-                      />
+                    <div className="flex items-center space-x-2">
+                      <CustomToggleSwitch
+                          id="nachlassdepot-switch"
+                          checked={nachlassdepotActive}
+                          onCheckedChange={setNachlassdepotActive}
+                          ariaLabel="Nachlassdepot Ja/Nein"
+                          activeBackgroundColor="bg-[hsl(var(--logo-blue))]"
+                          activeIconColor="text-white"
+                          inactiveBackgroundColor="bg-input"
+                          inactiveIconColor="text-muted-foreground"
+                        />
+                        <Label htmlFor="nachlassdepot-switch" className="text-muted-foreground">
+                          {nachlassdepotActive ? "Ja" : "Nein"}
+                        </Label>
+                      </div>
 
                     <span className="font-medium">Kommunikationsart:</span>
                     <span className="text-muted-foreground">Elektronisch</span>
 
                     <span className="font-medium">Online-Zugriff aktiviert:</span>
-                     <CustomToggleSwitch
-                        id="online-zugriff-switch"
-                        checked={onlineZugriffActive}
-                        onCheckedChange={setOnlineZugriffActive}
-                        ariaLabel="Online-Zugriff Ja/Nein"
-                        activeBackgroundColor="bg-[hsl(var(--logo-blue))]"
-                        activeIconColor="text-white"
-                        inactiveBackgroundColor="bg-input"
-                        inactiveIconColor="text-muted-foreground"
-                      />
+                     <div className="flex items-center space-x-2">
+                        <CustomToggleSwitch
+                          id="online-zugriff-switch"
+                          checked={onlineZugriffActive}
+                          onCheckedChange={setOnlineZugriffActive}
+                          ariaLabel="Online-Zugriff Ja/Nein"
+                          activeBackgroundColor="bg-[hsl(var(--logo-blue))]"
+                          activeIconColor="text-white"
+                          inactiveBackgroundColor="bg-input"
+                          inactiveIconColor="text-muted-foreground"
+                        />
+                        <Label htmlFor="online-zugriff-switch" className="text-muted-foreground">
+                          {onlineZugriffActive ? "Ja" : "Nein"}
+                        </Label>
+                      </div>
                     
                     <span className="font-medium">Zulässige Orderwege:</span>
                     <span className="text-muted-foreground">Online, Telefon</span>
 
                     <span className="font-medium">Papierloser Dokumentenversand:</span>
-                    <CustomToggleSwitch
-                        id="papierloser-versand-switch"
-                        checked={papierloserVersandActive}
-                        onCheckedChange={setPapierloserVersandActive}
-                        ariaLabel="Papierloser Dokumentenversand Ja/Nein"
-                        activeBackgroundColor="bg-[hsl(var(--logo-blue))]"
-                        activeIconColor="text-white"
-                        inactiveBackgroundColor="bg-input"
-                        inactiveIconColor="text-muted-foreground"
-                      />
+                    <div className="flex items-center space-x-2">
+                      <CustomToggleSwitch
+                          id="papierloser-versand-switch"
+                          checked={papierloserVersandActive}
+                          onCheckedChange={setPapierloserVersandActive}
+                          ariaLabel="Papierloser Dokumentenversand Ja/Nein"
+                          activeBackgroundColor="bg-[hsl(var(--logo-blue))]"
+                          activeIconColor="text-white"
+                          inactiveBackgroundColor="bg-input"
+                          inactiveIconColor="text-muted-foreground"
+                        />
+                        <Label htmlFor="papierloser-versand-switch" className="text-muted-foreground">
+                          {papierloserVersandActive ? "Ja" : "Nein"}
+                        </Label>
+                      </div>
                   </CardContent>
                 </AccordionContent>
               </Card>
