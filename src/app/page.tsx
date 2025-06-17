@@ -1,5 +1,4 @@
 
-
 'use client';
 
 import { useState, useEffect } from 'react';
@@ -13,6 +12,7 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 import { Switch } from "@/components/ui/switch";
 import { RiskGaugeChart } from '@/components/charts/RiskGaugeChart';
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
+import { CustomToggleSwitch } from '@/components/ui/custom-toggle-switch';
 
 
 export default function HomePage() {
@@ -21,6 +21,7 @@ export default function HomePage() {
   const [wiederanlageActive, setWiederanlageActive] = useState(true);
   const [derivateActive, setDerivateActive] = useState(true);
   const [zahlplaeneActive, setZahlplaeneActive] = useState(true);
+  const [kickbackActive, setKickbackActive] = useState(true);
 
   return (
     <div className="container mx-auto py-8 px-4 md:px-8">
@@ -268,7 +269,12 @@ export default function HomePage() {
                     <span className="text-muted-foreground">1,5%</span>
 
                     <span className="font-medium">Bestandsprovisionserstattung (KickBack):</span>
-                    <span className="text-muted-foreground">Aktiv</span>
+                    <CustomToggleSwitch 
+                      id="kickback-switch"
+                      checked={kickbackActive}
+                      onCheckedChange={setKickbackActive}
+                      ariaLabel="Bestandsprovisionserstattung Aktiv/Inaktiv"
+                    />
 
                     <span className="font-medium">Transaktionskosten:</span>
                     <span className="text-muted-foreground">5 € pro Transaktion</span>
@@ -354,4 +360,3 @@ export default function HomePage() {
     </div>
   );
 }
-
