@@ -136,41 +136,41 @@ export default function HomePage() {
                   <CardContent className="grid md:grid-cols-2 gap-x-8 gap-y-4 pt-0 text-sm">
                     <div className="grid grid-cols-[auto_1fr] gap-x-4 gap-y-2">
                       <span className="font-medium">Depotart:</span>
-                      <span className="text-muted-foreground">[Daten hier]</span>
+                      <span className="text-muted-foreground">Standarddepot</span>
 
                       <span className="font-medium">Depotbezeichnung:</span>
-                      <span className="text-muted-foreground">[Daten hier]</span>
+                      <span className="text-muted-foreground">Musterdepot</span>
 
                       <span className="font-medium">Depotinhaber:</span>
-                      <span className="text-muted-foreground">[Daten hier]</span>
+                      <span className="text-muted-foreground">Max Beispiel</span>
 
                       <span className="font-medium">UND/ODER Depot:</span>
-                      <span className="text-muted-foreground">[Daten hier]</span>
+                      <span className="text-muted-foreground">Ja</span>
 
                       <span className="font-medium">Verfügungsbeschränkung / Pfändung:</span>
-                      <span className="text-muted-foreground">[Daten hier]</span>
+                      <span className="text-muted-foreground">Nein</span>
 
                       <span className="font-medium">VL Vermerk:</span>
-                      <span className="text-muted-foreground">[Daten hier]</span>
+                      <span className="text-muted-foreground">Gesperrt</span>
 
                       <span className="font-medium">Wiederanlage:</span>
-                      <span className="text-muted-foreground">[Daten hier]</span>
+                      <span className="text-muted-foreground">Aktiv</span>
 
                       <span className="font-medium">Bevollmächtigter:</span>
-                      <span className="text-muted-foreground">[Daten hier]</span>
+                      <span className="text-muted-foreground">Anna Mustermann</span>
                     </div>
                     <div className="grid grid-cols-[auto_1fr] gap-x-4 gap-y-2">
                       <span className="font-medium">Depot Eröffnungsdatum:</span>
-                      <span className="text-muted-foreground">[Daten hier]</span>
+                      <span className="text-muted-foreground">01.01.2015</span>
 
                       <span className="font-medium">Depotlöschung vorgemerkt:</span>
-                      <span className="text-muted-foreground">[Daten hier]</span>
+                      <span className="text-muted-foreground">Nein</span>
 
                       <span className="font-medium">Derivate-Handelserlaubnis:</span>
-                      <span className="text-muted-foreground">[Daten hier]</span>
+                      <span className="text-muted-foreground">Aktiv</span>
 
                       <span className="font-medium">Letzte Depotänderung:</span>
-                      <span className="text-muted-foreground">[Daten hier]</span>
+                      <span className="text-muted-foreground">01.05.2025</span>
 
                       <span className="font-medium">Vollmacht (Ja/Nein):</span>
                        <div className="flex items-center space-x-2">
@@ -187,13 +187,13 @@ export default function HomePage() {
                       </div>
 
                       <span className="font-medium">Zahlpläne:</span>
-                      <span className="text-muted-foreground">[Daten hier]</span>
+                      <span className="text-muted-foreground">Aktiv</span>
 
                       <span className="font-medium">Risikoklasse:</span>
-                      <span className="text-muted-foreground">[Daten hier]</span>
+                      <span className="text-muted-foreground">3 - Ausgewogen</span>
 
                       <span className="font-medium">Letzte Transaktion:</span>
-                      <span className="text-muted-foreground">[Daten hier]</span>
+                      <span className="text-muted-foreground">Kauf - 02.06.2025</span>
                     </div>
                   </CardContent>
                 </AccordionContent>
