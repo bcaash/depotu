@@ -137,7 +137,7 @@ export default function HomePage() {
                       <span className="font-medium">Letzte Transaktion:</span>
                       <span className="text-muted-foreground">Kauf - 02.06.2025</span>
 
-                      <span className="font-medium">UND/ODER Depot:</span>
+                       <span className="font-medium">UND/ODER Depot:</span>
                       <div>
                         <RadioGroup
                           value={undOderDepot}
@@ -292,14 +292,11 @@ export default function HomePage() {
                     <span className="font-medium">FreistellungsAuftrag:</span>
                     <span className="text-muted-foreground">Ja</span>
 
-                    <span className="font-medium">FreistellungsAuftrag von:</span>
-                    <span className="text-muted-foreground">01.01.2025</span>
-
-                    <span className="font-medium">FreistellungsAuftrag bis:</span>
-                    <span className="text-muted-foreground">31.12.2025</span>
+                    <span className="font-medium">FreistellungsAuftrag von/bis:</span>
+                    <span className="text-muted-foreground">01.01.2025/unbegrenzt</span>
 
                     <span className="font-medium">FreistellungsBetrag:</span>
-                    <span className="text-muted-foreground">801 €</span>
+                    <span className="text-muted-foreground">1.000 €</span>
 
                     <span className="font-medium">FreistellungsBetrag ausgenutzt:</span>
                     <span className="text-muted-foreground">400 €</span>
@@ -357,3 +354,4 @@ export default function HomePage() {
     </div>
   );
 }
+
