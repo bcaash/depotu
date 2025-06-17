@@ -114,7 +114,7 @@ export default function HomePage() {
         <TabsContent value="structure">
           <p className="p-4 text-center text-muted-foreground">Inhalt für Struktur.</p>
         </TabsContent>
-        <TabsContent value="depot-info" className="py-6 space-y-6">
+        <TabsContent value="depot-info" className="mt-0 pt-0 pb-6 space-y-6">
           <Card>
             <CardHeader>
               <CardTitle className="text-[hsl(var(--logo-blue))]">Basis Information</CardTitle>
