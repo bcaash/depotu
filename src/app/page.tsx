@@ -39,7 +39,7 @@ const vermoegensaufbauChartConfig = {
 
 
 export default function HomePage() {
-  const [vollmacht, setVollmacht] = useState(false);
+  const [vollmacht, setVollmacht] = useState(true);
 
   return (
     <div className="container mx-auto py-8 px-4 md:px-8">
@@ -239,10 +239,44 @@ export default function HomePage() {
                 </AccordionContent>
               </Card>
             </AccordionItem>
+
+            <AccordionItem value="steuern-co" className="border-b-0">
+              <Card>
+                <AccordionTrigger className="w-full p-6 hover:no-underline">
+                  <CardHeader className="p-0">
+                    <CardTitle className="text-[hsl(var(--logo-blue))]">Steuern & Co.</CardTitle>
+                  </CardHeader>
+                </AccordionTrigger>
+                <AccordionContent>
+                  <CardContent className="grid grid-cols-[auto_1fr] gap-x-8 gap-y-2 pt-0 text-sm">
+                    <span className="font-medium">FreistellungsAuftrag:</span>
+                    <span className="text-muted-foreground">Ja</span>
+
+                    <span className="font-medium">FreistellungsAuftrag von:</span>
+                    <span className="text-muted-foreground">01.01.2025</span>
+
+                    <span className="font-medium">FreistellungsAuftrag bis:</span>
+                    <span className="text-muted-foreground">31.12.2025</span>
+
+                    <span className="font-medium">FreistellungsBetrag:</span>
+                    <span className="text-muted-foreground">801 €</span>
+
+                    <span className="font-medium">FreistellungsBetrag ausgenutzt:</span>
+                    <span className="text-muted-foreground">400 €</span>
+
+                    <span className="font-medium">Quellensteuertopf:</span>
+                    <span className="text-muted-foreground">50 €</span>
+
+                    <span className="font-medium">Verlustverrechnungstopf:</span>
+                    <span className="text-muted-foreground">100 €</span>
+                  </CardContent>
+                </AccordionContent>
+              </Card>
+            </AccordionItem>
+
           </Accordion>
         </TabsContent>
       </Tabs>
     </div>
   );
 }
-
