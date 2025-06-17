@@ -10,6 +10,7 @@ import { Label } from "@/components/ui/label";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { RiskGaugeChart } from '@/components/charts/RiskGaugeChart';
+import { FreistellungsbetragChart } from '@/components/charts/FreistellungsbetragChart';
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { CustomToggleSwitch } from '@/components/ui/custom-toggle-switch';
 import { cn } from '@/lib/utils';
@@ -55,10 +56,10 @@ const InactiveStatusIcon = ({ className }: { className?: string }) => (
 export default function HomePage() {
   const [vollmacht, setVollmacht] = useState(true);
   const [undOderDepot, setUndOderDepot] = useState("UND");
-  const [wiederanlageActive, setWiederanlageActive] = useState(false); // Default: inactive
-  const [derivateActive, setDerivateActive] = useState(true); // Default: active
-  const [zahlplaeneActive, setZahlplaeneActive] = useState(false); // Default: inactive
-  const [kickbackActive, setKickbackActive] = useState(true); // Default: active
+  const [wiederanlageActive, setWiederanlageActive] = useState(false); 
+  const [derivateActive, setDerivateActive] = useState(true); 
+  const [zahlplaeneActive, setZahlplaeneActive] = useState(false); 
+  const [kickbackActive, setKickbackActive] = useState(true); 
 
   const [sperrvermerkActive, setSperrvermerkActive] = useState(false);
   const [erbenvermerkActive, setErbenvermerkActive] = useState(false);
@@ -349,12 +350,11 @@ export default function HomePage() {
 
                     <span className="font-medium">FreistellungsAuftrag von/bis:</span>
                     <span className="text-muted-foreground">01.01.2025/unbegrenzt</span>
-
-                    <span className="font-medium">FreistellungsBetrag:</span>
-                    <span className="text-muted-foreground">1.000 €</span>
-
-                    <span className="font-medium">FreistellungsBetrag ausgenutzt:</span>
-                    <span className="text-muted-foreground">400 €</span>
+                    
+                    <div className="col-span-2 pt-2">
+                      <p className="text-sm font-medium mb-1">Status Freistellungsbetrag</p>
+                      <FreistellungsbetragChart totalAmount={1000} usedAmount={400} />
+                    </div>
 
                     <span className="font-medium">Quellensteuertopf:</span>
                     <span className="text-muted-foreground">50 €</span>
@@ -478,3 +478,4 @@ export default function HomePage() {
     </div>
   );
 }
+
