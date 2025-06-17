@@ -11,6 +11,10 @@ interface CustomToggleSwitchProps {
   onCheckedChange: (checked: boolean) => void;
   className?: string;
   ariaLabel?: string;
+  activeBackgroundColor?: string;
+  activeIconColor?: string;
+  inactiveBackgroundColor?: string;
+  inactiveIconColor?: string;
 }
 
 export const CustomToggleSwitch: React.FC<CustomToggleSwitchProps> = ({
@@ -19,10 +23,17 @@ export const CustomToggleSwitch: React.FC<CustomToggleSwitchProps> = ({
   onCheckedChange,
   className,
   ariaLabel,
+  activeBackgroundColor = 'bg-green-500',
+  activeIconColor = 'text-white',
+  inactiveBackgroundColor = 'bg-red-500',
+  inactiveIconColor = 'text-white',
 }) => {
   const handleToggle = () => {
     onCheckedChange(!checked);
   };
+
+  const currentBgColor = checked ? activeBackgroundColor : inactiveBackgroundColor;
+  const currentIconColor = checked ? activeIconColor : inactiveIconColor;
 
   return (
     <button
@@ -34,7 +45,7 @@ export const CustomToggleSwitch: React.FC<CustomToggleSwitchProps> = ({
       onClick={handleToggle}
       className={cn(
         'relative inline-flex flex-shrink-0 items-center h-5 w-9 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background',
-        checked ? 'bg-green-500' : 'bg-red-500',
+        currentBgColor,
         className
       )}
     >
@@ -45,9 +56,9 @@ export const CustomToggleSwitch: React.FC<CustomToggleSwitchProps> = ({
         )}
       >
         {checked ? (
-          <Check className="h-3 w-3 text-green-500" />
+          <Check className={cn('h-3 w-3', currentIconColor)} />
         ) : (
-          <LucideX className="h-3 w-3 text-red-500" />
+          <LucideX className={cn('h-3 w-3', currentIconColor)} />
         )}
       </span>
     </button>

@@ -156,7 +156,7 @@ export default function HomePage() {
                         </RadioGroup>
                       </div>
                       
-                      <span className="font-medium">VL Vermerk:</span>
+                       <span className="font-medium">VL Vermerk:</span>
                       <div className="relative group flex items-center h-5">
                         <Lock className="h-5 w-5 text-muted-foreground flex-shrink-0 transition-all duration-300 ease-in-out group-hover:text-destructive group-hover:shadow-[0_0_10px_hsl(var(--destructive)/0.7)]" />
                         <span 
@@ -183,6 +183,10 @@ export default function HomePage() {
                           checked={vollmacht}
                           onCheckedChange={setVollmacht}
                           ariaLabel="Vollmacht Ja/Nein"
+                          activeBackgroundColor="bg-[hsl(var(--logo-blue))]"
+                          activeIconColor="text-white"
+                          inactiveBackgroundColor="bg-input"
+                          inactiveIconColor="text-muted-foreground"
                         />
                         <Label htmlFor="vollmacht-switch" className="text-muted-foreground">
                           {vollmacht ? "Ja" : "Nein"}
