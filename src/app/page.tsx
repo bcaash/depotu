@@ -111,7 +111,7 @@ export default function HomePage() {
                 </AccordionTrigger>
                 <AccordionContent>
                   <CardContent className="grid md:grid-cols-2 gap-x-8 gap-y-4 pt-0 text-sm">
-                    <div className="grid grid-cols-[auto_1fr] gap-x-4 gap-y-2">
+                    <div className="grid grid-cols-[auto_1fr] gap-x-4 gap-y-3 items-start">
                       <span className="font-medium">Depotart:</span>
                       <span className="text-muted-foreground">Standarddepot</span>
 
@@ -136,7 +136,7 @@ export default function HomePage() {
                       <span className="font-medium">Bevollmächtigter:</span>
                       <span className="text-muted-foreground">Anna Mustermann</span>
                     </div>
-                    <div className="grid grid-cols-[auto_1fr] gap-x-4 gap-y-2">
+                    <div className="grid grid-cols-[auto_1fr] gap-x-4 gap-y-3 items-start">
                       <span className="font-medium">Depot Eröffnungsdatum:</span>
                       <span className="text-muted-foreground">01.01.2015</span>
 
@@ -167,7 +167,7 @@ export default function HomePage() {
                       <span className="text-muted-foreground">Aktiv</span>
 
                       <span className="font-medium">Risikoklasse:</span>
-                      <div className="pb-6">
+                      <div className="">
                         <RiskGaugeChart value={25} />
                       </div>
 
