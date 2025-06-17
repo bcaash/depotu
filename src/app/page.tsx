@@ -8,6 +8,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { RiskGaugeChart } from '@/components/charts/RiskGaugeChart';
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { CustomToggleSwitch } from '@/components/ui/custom-toggle-switch';
@@ -161,7 +162,7 @@ export default function HomePage() {
                   </RadioGroup>
                 </div>
                 
-                  <span className="font-medium">VL Vermerk:</span>
+                <span className="font-medium">VL Vermerk:</span>
                 <div className="relative group flex items-center h-5">
                   <Lock className="h-5 w-5 text-muted-foreground flex-shrink-0 transition-all duration-300 ease-in-out group-hover:text-destructive group-hover:shadow-[0_0_10px_hsl(var(--destructive)/0.7)]" />
                   <span 
@@ -258,182 +259,202 @@ export default function HomePage() {
               </div>
             </CardContent>
           </Card>
+          
+          <Accordion type="single" collapsible defaultValue="kosten-gebuehren" className="w-full space-y-6">
+            <AccordionItem value="kosten-gebuehren" className="border-none">
+              <Card className="shadow-md">
+                <AccordionTrigger className="w-full p-6 text-left hover:no-underline [&[data-state=open]>svg]:rotate-180">
+                  <CardTitle className="text-[hsl(var(--logo-blue))] text-2xl font-semibold leading-none tracking-tight">
+                    Kosten &amp; Gebühren
+                  </CardTitle>
+                </AccordionTrigger>
+                <AccordionContent className="p-6 pt-0">
+                  <div className="grid grid-cols-[auto_1fr] gap-x-8 gap-y-3 items-start text-sm">
+                    <span className="font-medium">Depotkosten:</span>
+                    <span className="text-muted-foreground">45 € p.a.</span>
+                    
+                    <span className="font-medium">Servicegebühren:</span>
+                    <span className="text-muted-foreground">20 € p.a.</span>
 
-          <Card className="shadow-md">
-            <CardHeader>
-              <CardTitle className="text-[hsl(var(--logo-blue))]">Kosten & Gebühren</CardTitle>
-            </CardHeader>
-            <CardContent className="grid grid-cols-[auto_1fr] gap-x-8 gap-y-3 pt-0 text-sm items-start">
-              <span className="font-medium">Depotkosten:</span>
-              <span className="text-muted-foreground">45 € p.a.</span>
-              
-              <span className="font-medium">Servicegebühren:</span>
-              <span className="text-muted-foreground">20 € p.a.</span>
+                    <span className="font-medium">Servicegebühren gültig von/bis:</span>
+                    <span className="text-muted-foreground">01.01.2025 / 31.12.2026</span>
 
-              <span className="font-medium">Servicegebühren gültig von/bis:</span>
-              <span className="text-muted-foreground">01.01.2025 / 31.12.2026</span>
+                    <span className="font-medium">DepotRabatt in Prozent:</span>
+                    <span className="text-muted-foreground">2%</span>
 
-              <span className="font-medium">DepotRabatt in Prozent:</span>
-              <span className="text-muted-foreground">2%</span>
+                    <span className="font-medium">Tauschrabatt in Prozent:</span>
+                    <span className="text-muted-foreground">1,5%</span>
 
-              <span className="font-medium">Tauschrabatt in Prozent:</span>
-              <span className="text-muted-foreground">1,5%</span>
-
-              <span className="font-medium">Bestandsprovisionserstattung (KickBack):</span>
-              <CustomToggleSwitch 
-                id="kickback-switch"
-                checked={kickbackActive}
-                onCheckedChange={setKickbackActive}
-                ariaLabel="Bestandsprovisionserstattung Aktiv/Inaktiv"
-              />
-
-              <span className="font-medium">Transaktionskosten:</span>
-              <span className="text-muted-foreground">5 € pro Transaktion</span>
-
-              <span className="font-medium">Sonstige Kosten:</span>
-              <span className="text-muted-foreground">10 € p.a.</span>
-            </CardContent>
-          </Card>
-
-          <Card className="shadow-md">
-            <CardHeader>
-              <CardTitle className="text-[hsl(var(--logo-blue))]">Steuern & Co.</CardTitle>
-            </CardHeader>
-            <CardContent className="grid grid-cols-[auto_1fr] gap-x-8 gap-y-3 pt-0 text-sm items-start">
-                <span className="font-medium">FreistellungsAuftrag:</span>
-                <div className="flex items-center space-x-2">
-                  <CustomToggleSwitch
-                      id="freistellungsauftrag-switch"
-                      checked={freistellungsAuftragActive}
-                      onCheckedChange={setFreistellungsAuftragActive}
-                      ariaLabel="FreistellungsAuftrag Ja/Nein"
-                      activeBackgroundColor="bg-[hsl(var(--logo-blue))]"
-                      activeIconColor="text-white"
-                      inactiveBackgroundColor="bg-input"
-                      inactiveIconColor="text-muted-foreground"
+                    <span className="font-medium">Bestandsprovisionserstattung (KickBack):</span>
+                    <CustomToggleSwitch 
+                      id="kickback-switch"
+                      checked={kickbackActive}
+                      onCheckedChange={setKickbackActive}
+                      ariaLabel="Bestandsprovisionserstattung Aktiv/Inaktiv"
                     />
-                    <Label htmlFor="freistellungsauftrag-switch" className="text-muted-foreground">
-                      {freistellungsAuftragActive ? "Ja" : "Nein"}
-                    </Label>
-                </div>
 
-              <span className="font-medium">FreistellungsAuftrag von/bis:</span>
-              <span className="text-muted-foreground">01.01.2025/unbegrenzt</span>
+                    <span className="font-medium">Transaktionskosten:</span>
+                    <span className="text-muted-foreground">5 € pro Transaktion</span>
 
-              <span className="font-medium">FreistellungsBetrag:</span>
-              <span className="text-muted-foreground">1.000 €</span>
+                    <span className="font-medium">Sonstige Kosten:</span>
+                    <span className="text-muted-foreground">10 € p.a.</span>
+                  </div>
+                </AccordionContent>
+              </Card>
+            </AccordionItem>
 
-              <span className="font-medium">FreistellungsBetrag ausgenutzt:</span>
-              <span className="text-muted-foreground">400 €</span>
+            <AccordionItem value="steuern-co" className="border-none">
+              <Card className="shadow-md">
+                <AccordionTrigger className="w-full p-6 text-left hover:no-underline [&[data-state=open]>svg]:rotate-180">
+                  <CardTitle className="text-[hsl(var(--logo-blue))] text-2xl font-semibold leading-none tracking-tight">
+                    Steuern &amp; Co.
+                  </CardTitle>
+                </AccordionTrigger>
+                <AccordionContent className="p-6 pt-0">
+                  <div className="grid grid-cols-[auto_1fr] gap-x-8 gap-y-3 items-start text-sm">
+                    <span className="font-medium">FreistellungsAuftrag:</span>
+                    <div className="flex items-center space-x-2">
+                      <CustomToggleSwitch
+                          id="freistellungsauftrag-switch"
+                          checked={freistellungsAuftragActive}
+                          onCheckedChange={setFreistellungsAuftragActive}
+                          ariaLabel="FreistellungsAuftrag Ja/Nein"
+                          activeBackgroundColor="bg-[hsl(var(--logo-blue))]"
+                          activeIconColor="text-white"
+                          inactiveBackgroundColor="bg-input"
+                          inactiveIconColor="text-muted-foreground"
+                        />
+                        <Label htmlFor="freistellungsauftrag-switch" className="text-muted-foreground">
+                          {freistellungsAuftragActive ? "Ja" : "Nein"}
+                        </Label>
+                    </div>
 
-              <span className="font-medium">Quellensteuertopf:</span>
-              <span className="text-muted-foreground">50 €</span>
+                    <span className="font-medium">FreistellungsAuftrag von/bis:</span>
+                    <span className="text-muted-foreground">01.01.2025/unbegrenzt</span>
 
-              <span className="font-medium">Verlustverrechnungstopf:</span>
-              <span className="text-muted-foreground">100 €</span>
-            </CardContent>
-          </Card>
+                    <span className="font-medium">FreistellungsBetrag:</span>
+                    <span className="text-muted-foreground">1.000 €</span>
 
-          <Card className="shadow-md">
-            <CardHeader>
-              <CardTitle className="text-[hsl(var(--logo-blue))]">Sonstiges</CardTitle>
-            </CardHeader>
-            <CardContent className="grid grid-cols-[auto_1fr] gap-x-8 gap-y-3 pt-0 text-sm items-start">
-              <span className="font-medium">Wirtschaftlich Berechtigter:</span>
-              <span className="text-muted-foreground">Max Beispiel</span>
+                    <span className="font-medium">FreistellungsBetrag ausgenutzt:</span>
+                    <span className="text-muted-foreground">400 €</span>
 
-              <span className="font-medium">Sperrvermerk:</span>
-                <div className="flex items-center space-x-2">
-                  <CustomToggleSwitch
-                    id="sperrvermerk-switch"
-                    checked={sperrvermerkActive}
-                    onCheckedChange={setSperrvermerkActive}
-                    ariaLabel="Sperrvermerk Ja/Nein"
-                    activeBackgroundColor="bg-[hsl(var(--logo-blue))]"
-                    activeIconColor="text-white"
-                    inactiveBackgroundColor="bg-input"
-                    inactiveIconColor="text-muted-foreground"
-                  />
-                  <Label htmlFor="sperrvermerk-switch" className="text-muted-foreground">
-                    {sperrvermerkActive ? "Ja" : "Nein"}
-                  </Label>
-                </div>
+                    <span className="font-medium">Quellensteuertopf:</span>
+                    <span className="text-muted-foreground">50 €</span>
 
-              <span className="font-medium">Erbenvermerk:</span>
-                <div className="flex items-center space-x-2">
-                  <CustomToggleSwitch
-                    id="erbenvermerk-switch"
-                    checked={erbenvermerkActive}
-                    onCheckedChange={setErbenvermerkActive}
-                    ariaLabel="Erbenvermerk Ja/Nein"
-                    activeBackgroundColor="bg-[hsl(var(--logo-blue))]"
-                    activeIconColor="text-white"
-                    inactiveBackgroundColor="bg-input"
-                    inactiveIconColor="text-muted-foreground"
-                  />
-                  <Label htmlFor="erbenvermerk-switch" className="text-muted-foreground">
-                    {erbenvermerkActive ? "Ja" : "Nein"}
-                  </Label>
-                </div>
-              
-              <span className="font-medium">Nachlassdepot:</span>
-              <div className="flex items-center space-x-2">
-                <CustomToggleSwitch
-                    id="nachlassdepot-switch"
-                    checked={nachlassdepotActive}
-                    onCheckedChange={setNachlassdepotActive}
-                    ariaLabel="Nachlassdepot Ja/Nein"
-                    activeBackgroundColor="bg-[hsl(var(--logo-blue))]"
-                    activeIconColor="text-white"
-                    inactiveBackgroundColor="bg-input"
-                    inactiveIconColor="text-muted-foreground"
-                  />
-                  <Label htmlFor="nachlassdepot-switch" className="text-muted-foreground">
-                    {nachlassdepotActive ? "Ja" : "Nein"}
-                  </Label>
-                </div>
+                    <span className="font-medium">Verlustverrechnungstopf:</span>
+                    <span className="text-muted-foreground">100 €</span>
+                  </div>
+                </AccordionContent>
+              </Card>
+            </AccordionItem>
 
-              <span className="font-medium">Kommunikationsart:</span>
-              <span className="text-muted-foreground">Elektronisch</span>
+            <AccordionItem value="sonstiges" className="border-none">
+              <Card className="shadow-md">
+                <AccordionTrigger className="w-full p-6 text-left hover:no-underline [&[data-state=open]>svg]:rotate-180">
+                  <CardTitle className="text-[hsl(var(--logo-blue))] text-2xl font-semibold leading-none tracking-tight">
+                    Sonstiges
+                  </CardTitle>
+                </AccordionTrigger>
+                <AccordionContent className="p-6 pt-0">
+                  <div className="grid grid-cols-[auto_1fr] gap-x-8 gap-y-3 items-start text-sm">
+                    <span className="font-medium">Wirtschaftlich Berechtigter:</span>
+                    <span className="text-muted-foreground">Max Beispiel</span>
 
-              <span className="font-medium">Online-Zugriff aktiviert:</span>
-                <div className="flex items-center space-x-2">
-                  <CustomToggleSwitch
-                    id="online-zugriff-switch"
-                    checked={onlineZugriffActive}
-                    onCheckedChange={setOnlineZugriffActive}
-                    ariaLabel="Online-Zugriff Ja/Nein"
-                    activeBackgroundColor="bg-[hsl(var(--logo-blue))]"
-                    activeIconColor="text-white"
-                    inactiveBackgroundColor="bg-input"
-                    inactiveIconColor="text-muted-foreground"
-                  />
-                  <Label htmlFor="online-zugriff-switch" className="text-muted-foreground">
-                    {onlineZugriffActive ? "Ja" : "Nein"}
-                  </Label>
-                </div>
-              
-              <span className="font-medium">Zulässige Orderwege:</span>
-              <span className="text-muted-foreground">Online, Telefon</span>
+                    <span className="font-medium">Sperrvermerk:</span>
+                      <div className="flex items-center space-x-2">
+                        <CustomToggleSwitch
+                          id="sperrvermerk-switch"
+                          checked={sperrvermerkActive}
+                          onCheckedChange={setSperrvermerkActive}
+                          ariaLabel="Sperrvermerk Ja/Nein"
+                          activeBackgroundColor="bg-[hsl(var(--logo-blue))]"
+                          activeIconColor="text-white"
+                          inactiveBackgroundColor="bg-input"
+                          inactiveIconColor="text-muted-foreground"
+                        />
+                        <Label htmlFor="sperrvermerk-switch" className="text-muted-foreground">
+                          {sperrvermerkActive ? "Ja" : "Nein"}
+                        </Label>
+                      </div>
 
-              <span className="font-medium">Papierloser Dokumentenversand:</span>
-              <div className="flex items-center space-x-2">
-                <CustomToggleSwitch
-                    id="papierloser-versand-switch"
-                    checked={papierloserVersandActive}
-                    onCheckedChange={setPapierloserVersandActive}
-                    ariaLabel="Papierloser Dokumentenversand Ja/Nein"
-                    activeBackgroundColor="bg-[hsl(var(--logo-blue))]"
-                    activeIconColor="text-white"
-                    inactiveBackgroundColor="bg-input"
-                    inactiveIconColor="text-muted-foreground"
-                  />
-                  <Label htmlFor="papierloser-versand-switch" className="text-muted-foreground">
-                    {papierloserVersandActive ? "Ja" : "Nein"}
-                  </Label>
-                </div>
-            </CardContent>
-          </Card>
+                    <span className="font-medium">Erbenvermerk:</span>
+                      <div className="flex items-center space-x-2">
+                        <CustomToggleSwitch
+                          id="erbenvermerk-switch"
+                          checked={erbenvermerkActive}
+                          onCheckedChange={setErbenvermerkActive}
+                          ariaLabel="Erbenvermerk Ja/Nein"
+                          activeBackgroundColor="bg-[hsl(var(--logo-blue))]"
+                          activeIconColor="text-white"
+                          inactiveBackgroundColor="bg-input"
+                          inactiveIconColor="text-muted-foreground"
+                        />
+                        <Label htmlFor="erbenvermerk-switch" className="text-muted-foreground">
+                          {erbenvermerkActive ? "Ja" : "Nein"}
+                        </Label>
+                      </div>
+                    
+                    <span className="font-medium">Nachlassdepot:</span>
+                    <div className="flex items-center space-x-2">
+                      <CustomToggleSwitch
+                          id="nachlassdepot-switch"
+                          checked={nachlassdepotActive}
+                          onCheckedChange={setNachlassdepotActive}
+                          ariaLabel="Nachlassdepot Ja/Nein"
+                          activeBackgroundColor="bg-[hsl(var(--logo-blue))]"
+                          activeIconColor="text-white"
+                          inactiveBackgroundColor="bg-input"
+                          inactiveIconColor="text-muted-foreground"
+                        />
+                        <Label htmlFor="nachlassdepot-switch" className="text-muted-foreground">
+                          {nachlassdepotActive ? "Ja" : "Nein"}
+                        </Label>
+                      </div>
+
+                    <span className="font-medium">Kommunikationsart:</span>
+                    <span className="text-muted-foreground">Elektronisch</span>
+
+                    <span className="font-medium">Online-Zugriff aktiviert:</span>
+                      <div className="flex items-center space-x-2">
+                        <CustomToggleSwitch
+                          id="online-zugriff-switch"
+                          checked={onlineZugriffActive}
+                          onCheckedChange={setOnlineZugriffActive}
+                          ariaLabel="Online-Zugriff Ja/Nein"
+                          activeBackgroundColor="bg-[hsl(var(--logo-blue))]"
+                          activeIconColor="text-white"
+                          inactiveBackgroundColor="bg-input"
+                          inactiveIconColor="text-muted-foreground"
+                        />
+                        <Label htmlFor="online-zugriff-switch" className="text-muted-foreground">
+                          {onlineZugriffActive ? "Ja" : "Nein"}
+                        </Label>
+                      </div>
+                    
+                    <span className="font-medium">Zulässige Orderwege:</span>
+                    <span className="text-muted-foreground">Online, Telefon</span>
+
+                    <span className="font-medium">Papierloser Dokumentenversand:</span>
+                    <div className="flex items-center space-x-2">
+                      <CustomToggleSwitch
+                          id="papierloser-versand-switch"
+                          checked={papierloserVersandActive}
+                          onCheckedChange={setPapierloserVersandActive}
+                          ariaLabel="Papierloser Dokumentenversand Ja/Nein"
+                          activeBackgroundColor="bg-[hsl(var(--logo-blue))]"
+                          activeIconColor="text-white"
+                          inactiveBackgroundColor="bg-input"
+                          inactiveIconColor="text-muted-foreground"
+                        />
+                        <Label htmlFor="papierloser-versand-switch" className="text-muted-foreground">
+                          {papierloserVersandActive ? "Ja" : "Nein"}
+                        </Label>
+                      </div>
+                  </div>
+                </AccordionContent>
+              </Card>
+            </AccordionItem>
+          </Accordion>
         </TabsContent>
       </Tabs>
     </div>
