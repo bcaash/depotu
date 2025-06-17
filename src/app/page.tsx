@@ -17,6 +17,9 @@ import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 export default function HomePage() {
   const [vollmacht, setVollmacht] = useState(true);
   const [undOderDepot, setUndOderDepot] = useState("UND");
+  const [wiederanlageActive, setWiederanlageActive] = useState(true);
+  const [derivateActive, setDerivateActive] = useState(true);
+  const [zahlplaeneActive, setZahlplaeneActive] = useState(true);
 
   return (
     <div className="container mx-auto py-8 px-4 md:px-8">
@@ -157,7 +160,18 @@ export default function HomePage() {
                       <span className="text-muted-foreground">Gesperrt</span>
 
                       <span className="font-medium">Wiederanlage:</span>
-                      <span className="text-muted-foreground">Aktiv</span>
+                      <div className="flex items-center space-x-2">
+                        <Switch
+                          id="wiederanlage-switch"
+                          checked={wiederanlageActive}
+                          onCheckedChange={setWiederanlageActive}
+                          aria-label="Wiederanlage Aktiv/Inaktiv"
+                          className="data-[state=checked]:bg-[hsl(var(--logo-blue))]"
+                        />
+                        <Label htmlFor="wiederanlage-switch" className="text-muted-foreground">
+                          {wiederanlageActive ? "Aktiv" : "Inaktiv"}
+                        </Label>
+                      </div>
                       
                       <span className="font-medium">Vollmacht (Ja/Nein):</span>
                        <div className="flex items-center space-x-2">
@@ -180,10 +194,32 @@ export default function HomePage() {
                       <span className="text-muted-foreground">Nein</span>
                       
                       <span className="font-medium">Derivate-Handelserlaubnis:</span>
-                      <span className="text-muted-foreground">Aktiv</span>
+                      <div className="flex items-center space-x-2">
+                        <Switch
+                          id="derivate-switch"
+                          checked={derivateActive}
+                          onCheckedChange={setDerivateActive}
+                          aria-label="Derivate-Handelserlaubnis Aktiv/Inaktiv"
+                          className="data-[state=checked]:bg-[hsl(var(--logo-blue))]"
+                        />
+                        <Label htmlFor="derivate-switch" className="text-muted-foreground">
+                          {derivateActive ? "Aktiv" : "Inaktiv"}
+                        </Label>
+                      </div>
 
                       <span className="font-medium">Zahlpläne:</span>
-                      <span className="text-muted-foreground">Aktiv</span>
+                      <div className="flex items-center space-x-2">
+                        <Switch
+                          id="zahlplaene-switch"
+                          checked={zahlplaeneActive}
+                          onCheckedChange={setZahlplaeneActive}
+                          aria-label="Zahlpläne Aktiv/Inaktiv"
+                          className="data-[state=checked]:bg-[hsl(var(--logo-blue))]"
+                        />
+                        <Label htmlFor="zahlplaene-switch" className="text-muted-foreground">
+                          {zahlplaeneActive ? "Aktiv" : "Inaktiv"}
+                        </Label>
+                      </div>
 
                       <span className="font-medium">Risikoklasse:</span>
                       <div className="-ml-4">
