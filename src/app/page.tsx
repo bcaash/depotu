@@ -1,4 +1,5 @@
 
+
 'use client';
 
 import { useState, useEffect } from 'react';
@@ -156,7 +157,14 @@ export default function HomePage() {
                       </div>
 
                       <span className="font-medium">VL Vermerk:</span>
-                      <Lock className="h-5 w-5 text-muted-foreground" />
+                      <div className="relative group flex items-center h-5">
+                        <Lock className="h-5 w-5 text-muted-foreground flex-shrink-0" />
+                        <span 
+                          className="absolute left-full ml-1 top-1/2 -translate-y-1/2 whitespace-nowrap opacity-0 transform -translate-x-full group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 ease-in-out text-sm text-muted-foreground pointer-events-none"
+                        >
+                          Gesperrt
+                        </span>
+                      </div>
                     </div>
 
                     <div className="grid grid-cols-[auto_1fr] gap-x-4 gap-y-3 items-start">
