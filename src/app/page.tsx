@@ -28,6 +28,10 @@ export default function HomePage() {
   const [onlineZugriffActive, setOnlineZugriffActive] = useState(true);
   const [papierloserVersandActive, setPapierloserVersandActive] = useState(true);
 
+  const [verfuegungsbeschraenkungActive, setVerfuegungsbeschraenkungActive] = useState(false);
+  const [depotloeschungVorgemerktActive, setDepotloeschungVorgemerktActive] = useState(false);
+  const [freistellungsAuftragActive, setFreistellungsAuftragActive] = useState(true);
+
 
   return (
     <div className="container mx-auto py-8 px-4 md:px-8">
@@ -204,7 +208,16 @@ export default function HomePage() {
                       <span className="text-muted-foreground">Anna Mustermann</span>
 
                       <span className="font-medium">Verfügungsbeschränkung / Pfändung:</span>
-                      <span className="text-muted-foreground">Nein</span>
+                      <CustomToggleSwitch
+                          id="verfuegungsbeschraenkung-switch"
+                          checked={verfuegungsbeschraenkungActive}
+                          onCheckedChange={setVerfuegungsbeschraenkungActive}
+                          ariaLabel="Verfügungsbeschränkung / Pfändung Ja/Nein"
+                          activeBackgroundColor="bg-[hsl(var(--logo-blue))]"
+                          activeIconColor="text-white"
+                          inactiveBackgroundColor="bg-input"
+                          inactiveIconColor="text-muted-foreground"
+                        />
                       
                       <span className="font-medium">Derivate-Handelserlaubnis:</span>
                       <CustomToggleSwitch
@@ -228,7 +241,16 @@ export default function HomePage() {
                       </div>
                       
                       <span className="font-medium">Depotlöschung vorgemerkt:</span>
-                      <span className="text-muted-foreground">Nein</span>
+                      <CustomToggleSwitch
+                          id="depotloeschung-switch"
+                          checked={depotloeschungVorgemerktActive}
+                          onCheckedChange={setDepotloeschungVorgemerktActive}
+                          ariaLabel="Depotlöschung vorgemerkt Ja/Nein"
+                          activeBackgroundColor="bg-[hsl(var(--logo-blue))]"
+                          activeIconColor="text-white"
+                          inactiveBackgroundColor="bg-input"
+                          inactiveIconColor="text-muted-foreground"
+                        />
                     </div>
                   </CardContent>
                 </AccordionContent>
@@ -246,10 +268,10 @@ export default function HomePage() {
                   <CardContent className="grid grid-cols-[auto_1fr] gap-x-8 gap-y-3 pt-0 text-sm items-start">
                     <span className="font-medium">Depotkosten:</span>
                     <span className="text-muted-foreground">45 € p.a.</span>
-
+                    
                     <span className="font-medium">Servicegebühren:</span>
                     <span className="text-muted-foreground">20 € p.a.</span>
-                    
+
                     <span className="font-medium">Servicegebühren gültig von/bis:</span>
                     <span className="text-muted-foreground">01.01.2025 / 31.12.2026</span>
 
@@ -285,9 +307,18 @@ export default function HomePage() {
                   </CardHeader>
                 </AccordionTrigger>
                 <AccordionContent>
-                  <CardContent className="grid grid-cols-[auto_1fr] gap-x-8 gap-y-2 pt-0 text-sm">
+                  <CardContent className="grid grid-cols-[auto_1fr] gap-x-8 gap-y-3 pt-0 text-sm items-start">
                     <span className="font-medium">FreistellungsAuftrag:</span>
-                    <span className="text-muted-foreground">Ja</span>
+                    <CustomToggleSwitch
+                        id="freistellungsauftrag-switch"
+                        checked={freistellungsAuftragActive}
+                        onCheckedChange={setFreistellungsAuftragActive}
+                        ariaLabel="FreistellungsAuftrag Ja/Nein"
+                        activeBackgroundColor="bg-[hsl(var(--logo-blue))]"
+                        activeIconColor="text-white"
+                        inactiveBackgroundColor="bg-input"
+                        inactiveIconColor="text-muted-foreground"
+                      />
 
                     <span className="font-medium">FreistellungsAuftrag von/bis:</span>
                     <span className="text-muted-foreground">01.01.2025/unbegrenzt</span>
