@@ -136,7 +136,7 @@ export default function HomePage() {
                                             
                       <span className="font-medium">Letzte Transaktion:</span>
                       <span className="text-muted-foreground">Kauf - 02.06.2025</span>
-                      
+
                       <span className="font-medium">UND/ODER Depot:</span>
                       <div>
                         <RadioGroup
@@ -247,7 +247,7 @@ export default function HomePage() {
               <Card>
                 <AccordionTrigger className="w-full p-6 hover:no-underline">
                   <CardHeader className="p-0">
-                    <CardTitle className="text-[hsl(var(--logo-blue))]">Kosten & Co.</CardTitle>
+                    <CardTitle className="text-[hsl(var(--logo-blue))]">Kosten & Gebühren</CardTitle>
                   </CardHeader>
                 </AccordionTrigger>
                 <AccordionContent>
@@ -357,4 +357,5 @@ export default function HomePage() {
     </div>
   );
 }
+
 
