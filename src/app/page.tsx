@@ -135,8 +135,7 @@ export default function HomePage() {
                                             
                       <span className="font-medium">Letzte Transaktion:</span>
                       <span className="text-muted-foreground">Kauf - 02.06.2025</span>
-                    </div>
-                    <div className="grid grid-cols-[auto_1fr] gap-x-4 gap-y-3 items-start">
+
                       <span className="font-medium">UND/ODER Depot:</span>
                       <div>
                         <RadioGroup
@@ -155,7 +154,8 @@ export default function HomePage() {
                           </div>
                         </RadioGroup>
                       </div>
-
+                    </div>
+                    <div className="grid grid-cols-[auto_1fr] gap-x-4 gap-y-3 items-start">
                       <span className="font-medium">VL Vermerk:</span>
                       <Lock className="h-5 w-5 text-muted-foreground" />
 
