@@ -252,26 +252,23 @@ export default function HomePage() {
                 </AccordionTrigger>
                 <AccordionContent>
                   <CardContent className="grid grid-cols-[auto_1fr] gap-x-8 gap-y-2 pt-0 text-sm">
-                    <span className="font-medium">Bestandsprovisionserstattung (KickBack):</span>
-                    <span className="text-muted-foreground">Aktiv</span>
-
                     <span className="font-medium">Depotkosten:</span>
                     <span className="text-muted-foreground">45 € p.a.</span>
+
+                    <span className="font-medium">Servicegebühren:</span>
+                    <span className="text-muted-foreground">20 € p.a.</span>
+                    
+                    <span className="font-medium">Servicegebühren gültig von/bis:</span>
+                    <span className="text-muted-foreground">01.01.2025 / 31.12.2026</span>
 
                     <span className="font-medium">DepotRabatt in Prozent:</span>
                     <span className="text-muted-foreground">2%</span>
 
-                    <span className="font-medium">Servicegebühren:</span>
-                    <span className="text-muted-foreground">20 € p.a.</span>
-
-                    <span className="font-medium">Servicegebühren gültig von:</span>
-                    <span className="text-muted-foreground">01.01.2025</span>
-
-                    <span className="font-medium">Servicegebühren gültig bis:</span>
-                    <span className="text-muted-foreground">31.12.2025</span>
-
                     <span className="font-medium">Tauschrabatt in Prozent:</span>
                     <span className="text-muted-foreground">1,5%</span>
+
+                    <span className="font-medium">Bestandsprovisionserstattung (KickBack):</span>
+                    <span className="text-muted-foreground">Aktiv</span>
 
                     <span className="font-medium">Transaktionskosten:</span>
                     <span className="text-muted-foreground">5 € pro Transaktion</span>
