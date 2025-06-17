@@ -124,7 +124,7 @@ export default function HomePage() {
           <p className="p-4 text-center text-muted-foreground">Inhalt für Struktur.</p>
         </TabsContent>
         <TabsContent value="depot-info" className="py-6 space-y-6">
-          <Accordion type="single" collapsible className="w-full">
+          <Accordion type="single" collapsible className="w-full space-y-6">
             <AccordionItem value="basis-information" className="border-b-0">
                <Card>
                 <AccordionTrigger className="w-full p-6 hover:no-underline">
@@ -199,9 +199,50 @@ export default function HomePage() {
                 </AccordionContent>
               </Card>
             </AccordionItem>
+
+            <AccordionItem value="kosten-co" className="border-b-0">
+              <Card>
+                <AccordionTrigger className="w-full p-6 hover:no-underline">
+                  <CardHeader className="p-0">
+                    <CardTitle className="text-[hsl(var(--logo-blue))]">Kosten & Co.</CardTitle>
+                  </CardHeader>
+                </AccordionTrigger>
+                <AccordionContent>
+                  <CardContent className="grid grid-cols-[auto_1fr] gap-x-8 gap-y-2 pt-0 text-sm">
+                    <span className="font-medium">Bestandsprovisionserstattung (KickBack):</span>
+                    <span className="text-muted-foreground">Aktiv</span>
+
+                    <span className="font-medium">Depotkosten:</span>
+                    <span className="text-muted-foreground">45 € p.a.</span>
+
+                    <span className="font-medium">DepotRabatt in Prozent:</span>
+                    <span className="text-muted-foreground">2%</span>
+
+                    <span className="font-medium">Servicegebühren:</span>
+                    <span className="text-muted-foreground">20 € p.a.</span>
+
+                    <span className="font-medium">Servicegebühren gültig von:</span>
+                    <span className="text-muted-foreground">01.01.2025</span>
+
+                    <span className="font-medium">Servicegebühren gültig bis:</span>
+                    <span className="text-muted-foreground">31.12.2025</span>
+
+                    <span className="font-medium">Tauschrabatt in Prozent:</span>
+                    <span className="text-muted-foreground">1,5%</span>
+
+                    <span className="font-medium">Transaktionskosten:</span>
+                    <span className="text-muted-foreground">5 € pro Transaktion</span>
+
+                    <span className="font-medium">Sonstige Kosten:</span>
+                    <span className="text-muted-foreground">10 € p.a.</span>
+                  </CardContent>
+                </AccordionContent>
+              </Card>
+            </AccordionItem>
           </Accordion>
         </TabsContent>
       </Tabs>
     </div>
   );
 }
+
