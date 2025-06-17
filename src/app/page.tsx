@@ -116,157 +116,151 @@ export default function HomePage() {
           <p className="p-4 text-center text-muted-foreground">Inhalt für Struktur.</p>
         </TabsContent>
         <TabsContent value="depot-info" className="py-6 space-y-6">
-          <Accordion type="single" collapsible className="w-full space-y-6" defaultValue="basis-information">
-            <AccordionItem value="basis-information" className="border-b-0">
-               <Card>
-                <AccordionTrigger className="w-full p-6 hover:no-underline">
-                  <CardHeader className="p-0">
-                    <CardTitle className="text-[hsl(var(--logo-blue))]">Basis Information</CardTitle>
-                  </CardHeader>
-                </AccordionTrigger>
-                <AccordionContent>
-                  <CardContent className="grid md:grid-cols-2 gap-x-8 gap-y-3 pt-0 text-sm items-start">
-                    <div className="grid grid-cols-[auto_1fr] gap-x-4 gap-y-3 items-start">
-                      <span className="font-medium">Depotart:</span>
-                      <span className="text-muted-foreground">Standarddepot</span>
-                      
-                      <span className="font-medium">Depotbezeichnung:</span>
-                      <span className="text-muted-foreground">Musterdepot</span>
+          <Card className="mb-6">
+            <CardHeader>
+              <CardTitle className="text-[hsl(var(--logo-blue))]">Basis Information</CardTitle>
+            </CardHeader>
+            <CardContent className="grid md:grid-cols-2 gap-x-8 gap-y-3 pt-0 text-sm items-start">
+              <div className="grid grid-cols-[auto_1fr] gap-x-4 gap-y-3 items-start">
+                <span className="font-medium">Depotart:</span>
+                <span className="text-muted-foreground">Standarddepot</span>
+                
+                <span className="font-medium">Depotbezeichnung:</span>
+                <span className="text-muted-foreground">Musterdepot</span>
 
-                      <span className="font-medium">Privat/Firmendepot:</span>
-                      <span className="text-muted-foreground">Privat</span>
+                <span className="font-medium">Privat/Firmendepot:</span>
+                <span className="text-muted-foreground">Privat</span>
 
-                      <span className="font-medium">Depotinhaber:</span>
-                      <span className="text-muted-foreground">Max Beispiel</span>
+                <span className="font-medium">Depotinhaber:</span>
+                <span className="text-muted-foreground">Max Beispiel</span>
 
-                      <span className="font-medium">Depot Eröffnungsdatum:</span>
-                      <span className="text-muted-foreground">01.01.2015</span>
+                <span className="font-medium">Depot Eröffnungsdatum:</span>
+                <span className="text-muted-foreground">01.01.2015</span>
 
-                      <span className="font-medium">Letzte Depotänderung:</span>
-                      <span className="text-muted-foreground">01.05.2025</span>
-                                            
-                      <span className="font-medium">Letzte Transaktion:</span>
-                      <span className="text-muted-foreground">Kauf - 02.06.2025</span>
+                <span className="font-medium">Letzte Depotänderung:</span>
+                <span className="text-muted-foreground">01.05.2025</span>
+                                        
+                <span className="font-medium">Letzte Transaktion:</span>
+                <span className="text-muted-foreground">Kauf - 02.06.2025</span>
 
-                       <span className="font-medium">UND/ODER Depot:</span>
-                      <div>
-                        <RadioGroup
-                          value={undOderDepot}
-                          onValueChange={setUndOderDepot}
-                          className="flex items-center space-x-2"
-                          aria-label="UND/ODER Depot Auswahl"
-                        >
-                          <div className="flex items-center space-x-1">
-                            <RadioGroupItem value="UND" id="undOderDepot-und" />
-                            <Label htmlFor="undOderDepot-und" className="font-normal text-muted-foreground">UND</Label>
-                          </div>
-                          <div className="flex items-center space-x-1">
-                            <RadioGroupItem value="ODER" id="undOderDepot-oder" />
-                            <Label htmlFor="undOderDepot-oder" className="font-normal text-muted-foreground">ODER</Label>
-                          </div>
-                        </RadioGroup>
-                      </div>
-                      
-                       <span className="font-medium">VL Vermerk:</span>
-                      <div className="relative group flex items-center h-5">
-                        <Lock className="h-5 w-5 text-muted-foreground flex-shrink-0 transition-all duration-300 ease-in-out group-hover:text-destructive group-hover:shadow-[0_0_10px_hsl(var(--destructive)/0.7)]" />
-                        <span 
-                          className="absolute left-5 ml-1 top-1/2 -translate-y-1/2 whitespace-nowrap opacity-0 transform -translate-x-full group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 ease-in-out text-sm text-muted-foreground pointer-events-none"
-                        >
-                          Gesperrt
-                        </span>
-                      </div>
+                  <span className="font-medium">UND/ODER Depot:</span>
+                <div>
+                  <RadioGroup
+                    value={undOderDepot}
+                    onValueChange={setUndOderDepot}
+                    className="flex items-center space-x-2"
+                    aria-label="UND/ODER Depot Auswahl"
+                  >
+                    <div className="flex items-center space-x-1">
+                      <RadioGroupItem value="UND" id="undOderDepot-und" />
+                      <Label htmlFor="undOderDepot-und" className="font-normal text-muted-foreground">UND</Label>
                     </div>
-
-                    <div className="grid grid-cols-[auto_1fr] gap-x-4 gap-y-3 items-start">
-                      <span className="font-medium">Wiederanlage:</span>
-                       <CustomToggleSwitch
-                          id="wiederanlage-toggle"
-                          checked={wiederanlageActive}
-                          onCheckedChange={setWiederanlageActive}
-                          ariaLabel="Wiederanlage Aktiv/Inaktiv"
-                        />
-                      
-                      <span className="font-medium">Vollmacht:</span>
-                       <div className="flex items-center space-x-2">
-                        <CustomToggleSwitch
-                          id="vollmacht-switch"
-                          checked={vollmacht}
-                          onCheckedChange={setVollmacht}
-                          ariaLabel="Vollmacht Ja/Nein"
-                          activeBackgroundColor="bg-[hsl(var(--logo-blue))]"
-                          activeIconColor="text-white"
-                          inactiveBackgroundColor="bg-input"
-                          inactiveIconColor="text-muted-foreground"
-                        />
-                        <Label htmlFor="vollmacht-switch" className="text-muted-foreground">
-                          {vollmacht ? "Ja" : "Nein"}
-                        </Label>
-                      </div>
-
-                      <span className="font-medium">Bevollmächtigter:</span>
-                      <span className="text-muted-foreground">Anna Mustermann</span>
-
-                      <span className="font-medium">Verfügungsbeschränkung / Pfändung:</span>
-                      <div className="flex items-center space-x-2">
-                        <CustomToggleSwitch
-                            id="verfuegungsbeschraenkung-switch"
-                            checked={verfuegungsbeschraenkungActive}
-                            onCheckedChange={setVerfuegungsbeschraenkungActive}
-                            ariaLabel="Verfügungsbeschränkung / Pfändung Ja/Nein"
-                            activeBackgroundColor="bg-[hsl(var(--logo-blue))]"
-                            activeIconColor="text-white"
-                            inactiveBackgroundColor="bg-input"
-                            inactiveIconColor="text-muted-foreground"
-                          />
-                          <Label htmlFor="verfuegungsbeschraenkung-switch" className="text-muted-foreground">
-                            {verfuegungsbeschraenkungActive ? "Ja" : "Nein"}
-                          </Label>
-                        </div>
-                      
-                      <span className="font-medium">Derivate-Handelserlaubnis:</span>
-                      <CustomToggleSwitch
-                          id="derivate-toggle"
-                          checked={derivateActive}
-                          onCheckedChange={setDerivateActive}
-                          ariaLabel="Derivate-Handelserlaubnis Aktiv/Inaktiv"
-                        />
-
-                      <span className="font-medium">Zahlpläne:</span>
-                      <CustomToggleSwitch
-                          id="zahlplaene-toggle"
-                          checked={zahlplaeneActive}
-                          onCheckedChange={setZahlplaeneActive}
-                          ariaLabel="Zahlpläne Aktiv/Inaktiv"
-                        />
-
-                      <span className="font-medium">Risikoklasse:</span>
-                      <div className="-ml-4">
-                        <RiskGaugeChart value={25} />
-                      </div>
-                      
-                      <span className="font-medium">Depotlöschung vorgemerkt:</span>
-                      <div className="flex items-center space-x-2">
-                        <CustomToggleSwitch
-                            id="depotloeschung-switch"
-                            checked={depotloeschungVorgemerktActive}
-                            onCheckedChange={setDepotloeschungVorgemerktActive}
-                            ariaLabel="Depotlöschung vorgemerkt Ja/Nein"
-                            activeBackgroundColor="bg-[hsl(var(--logo-blue))]"
-                            activeIconColor="text-white"
-                            inactiveBackgroundColor="bg-input"
-                            inactiveIconColor="text-muted-foreground"
-                          />
-                        <Label htmlFor="depotloeschung-switch" className="text-muted-foreground">
-                          {depotloeschungVorgemerktActive ? "Ja" : "Nein"}
-                        </Label>
-                      </div>
+                    <div className="flex items-center space-x-1">
+                      <RadioGroupItem value="ODER" id="undOderDepot-oder" />
+                      <Label htmlFor="undOderDepot-oder" className="font-normal text-muted-foreground">ODER</Label>
                     </div>
-                  </CardContent>
-                </AccordionContent>
-              </Card>
-            </AccordionItem>
+                  </RadioGroup>
+                </div>
+                
+                  <span className="font-medium">VL Vermerk:</span>
+                <div className="relative group flex items-center h-5">
+                  <Lock className="h-5 w-5 text-muted-foreground flex-shrink-0 transition-all duration-300 ease-in-out group-hover:text-destructive group-hover:shadow-[0_0_10px_hsl(var(--destructive)/0.7)]" />
+                  <span 
+                    className="absolute left-5 ml-1 top-1/2 -translate-y-1/2 whitespace-nowrap opacity-0 transform -translate-x-full group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 ease-in-out text-sm text-muted-foreground pointer-events-none"
+                  >
+                    Gesperrt
+                  </span>
+                </div>
+              </div>
 
+              <div className="grid grid-cols-[auto_1fr] gap-x-4 gap-y-3 items-start">
+                <span className="font-medium">Wiederanlage:</span>
+                  <CustomToggleSwitch
+                    id="wiederanlage-toggle"
+                    checked={wiederanlageActive}
+                    onCheckedChange={setWiederanlageActive}
+                    ariaLabel="Wiederanlage Aktiv/Inaktiv"
+                  />
+                
+                <span className="font-medium">Vollmacht:</span>
+                  <div className="flex items-center space-x-2">
+                  <CustomToggleSwitch
+                    id="vollmacht-switch"
+                    checked={vollmacht}
+                    onCheckedChange={setVollmacht}
+                    ariaLabel="Vollmacht Ja/Nein"
+                    activeBackgroundColor="bg-[hsl(var(--logo-blue))]"
+                    activeIconColor="text-white"
+                    inactiveBackgroundColor="bg-input"
+                    inactiveIconColor="text-muted-foreground"
+                  />
+                  <Label htmlFor="vollmacht-switch" className="text-muted-foreground">
+                    {vollmacht ? "Ja" : "Nein"}
+                  </Label>
+                </div>
+
+                <span className="font-medium">Bevollmächtigter:</span>
+                <span className="text-muted-foreground">Anna Mustermann</span>
+
+                <span className="font-medium">Verfügungsbeschränkung / Pfändung:</span>
+                <div className="flex items-center space-x-2">
+                  <CustomToggleSwitch
+                      id="verfuegungsbeschraenkung-switch"
+                      checked={verfuegungsbeschraenkungActive}
+                      onCheckedChange={setVerfuegungsbeschraenkungActive}
+                      ariaLabel="Verfügungsbeschränkung / Pfändung Ja/Nein"
+                      activeBackgroundColor="bg-[hsl(var(--logo-blue))]"
+                      activeIconColor="text-white"
+                      inactiveBackgroundColor="bg-input"
+                      inactiveIconColor="text-muted-foreground"
+                    />
+                    <Label htmlFor="verfuegungsbeschraenkung-switch" className="text-muted-foreground">
+                      {verfuegungsbeschraenkungActive ? "Ja" : "Nein"}
+                    </Label>
+                  </div>
+                
+                <span className="font-medium">Derivate-Handelserlaubnis:</span>
+                <CustomToggleSwitch
+                    id="derivate-toggle"
+                    checked={derivateActive}
+                    onCheckedChange={setDerivateActive}
+                    ariaLabel="Derivate-Handelserlaubnis Aktiv/Inaktiv"
+                  />
+
+                <span className="font-medium">Zahlpläne:</span>
+                <CustomToggleSwitch
+                    id="zahlplaene-toggle"
+                    checked={zahlplaeneActive}
+                    onCheckedChange={setZahlplaeneActive}
+                    ariaLabel="Zahlpläne Aktiv/Inaktiv"
+                  />
+
+                <span className="font-medium">Risikoklasse:</span>
+                <div className="-ml-4">
+                  <RiskGaugeChart value={25} />
+                </div>
+                
+                <span className="font-medium">Depotlöschung vorgemerkt:</span>
+                <div className="flex items-center space-x-2">
+                  <CustomToggleSwitch
+                      id="depotloeschung-switch"
+                      checked={depotloeschungVorgemerktActive}
+                      onCheckedChange={setDepotloeschungVorgemerktActive}
+                      ariaLabel="Depotlöschung vorgemerkt Ja/Nein"
+                      activeBackgroundColor="bg-[hsl(var(--logo-blue))]"
+                      activeIconColor="text-white"
+                      inactiveBackgroundColor="bg-input"
+                      inactiveIconColor="text-muted-foreground"
+                    />
+                  <Label htmlFor="depotloeschung-switch" className="text-muted-foreground">
+                    {depotloeschungVorgemerktActive ? "Ja" : "Nein"}
+                  </Label>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+
+          <Accordion type="single" collapsible className="w-full space-y-6" defaultValue="kosten-gebuehren">
             <AccordionItem value="kosten-gebuehren" className="border-b-0">
               <Card>
                 <AccordionTrigger className="w-full p-6 hover:no-underline">
@@ -318,7 +312,7 @@ export default function HomePage() {
                 </AccordionTrigger>
                 <AccordionContent>
                   <CardContent className="grid grid-cols-[auto_1fr] gap-x-8 gap-y-3 pt-0 text-sm items-start">
-                     <span className="font-medium">FreistellungsAuftrag:</span>
+                      <span className="font-medium">FreistellungsAuftrag:</span>
                       <div className="flex items-center space-x-2">
                         <CustomToggleSwitch
                             id="freistellungsauftrag-switch"
@@ -367,7 +361,7 @@ export default function HomePage() {
                     <span className="text-muted-foreground">Max Beispiel</span>
 
                     <span className="font-medium">Sperrvermerk:</span>
-                     <div className="flex items-center space-x-2">
+                      <div className="flex items-center space-x-2">
                         <CustomToggleSwitch
                           id="sperrvermerk-switch"
                           checked={sperrvermerkActive}
@@ -384,7 +378,7 @@ export default function HomePage() {
                       </div>
 
                     <span className="font-medium">Erbenvermerk:</span>
-                     <div className="flex items-center space-x-2">
+                      <div className="flex items-center space-x-2">
                         <CustomToggleSwitch
                           id="erbenvermerk-switch"
                           checked={erbenvermerkActive}
@@ -421,7 +415,7 @@ export default function HomePage() {
                     <span className="text-muted-foreground">Elektronisch</span>
 
                     <span className="font-medium">Online-Zugriff aktiviert:</span>
-                     <div className="flex items-center space-x-2">
+                      <div className="flex items-center space-x-2">
                         <CustomToggleSwitch
                           id="online-zugriff-switch"
                           checked={onlineZugriffActive}
@@ -467,4 +461,3 @@ export default function HomePage() {
     </div>
   );
 }
-
