@@ -2,7 +2,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, LabelList, Cell } from 'recharts';
+import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, LabelList } from 'recharts';
 import { ChartContainer, type ChartConfig } from "@/components/ui/chart";
 
 interface FreistellungsbetragChartProps {
@@ -13,7 +13,7 @@ interface FreistellungsbetragChartProps {
 const chartConfig = {
   value: { color: 'hsl(var(--primary))' }, // Single color for all bars
   total: { label: 'Gesamt Freistellungsbetrag' },
-  used: { label: 'Genutzter Anteil' },
+  used: { label: 'FreistellungsBetrag ausgenutzt' },
   available: { label: 'Verfügbarer Anteil' },
 } satisfies ChartConfig;
 
