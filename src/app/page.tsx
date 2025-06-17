@@ -118,21 +118,24 @@ export default function HomePage() {
                       <span className="font-medium">Depotbezeichnung:</span>
                       <span className="text-muted-foreground">Musterdepot</span>
 
+                      <span className="font-medium">Privat/Firmendepot:</span>
+                      <span className="text-muted-foreground">Privat</span>
+
                       <span className="font-medium">Depotinhaber:</span>
                       <span className="text-muted-foreground">Max Beispiel</span>
 
                       <span className="font-medium">UND/ODER Depot:</span>
-                      <span className="text-muted-foreground">Ja</span>
+                      <span className="text-muted-foreground">UND</span>
 
                       <span className="font-medium">Verfügungsbeschränkung / Pfändung:</span>
                       <span className="text-muted-foreground">Nein</span>
-
+                      
                       <span className="font-medium">VL Vermerk:</span>
                       <span className="text-muted-foreground">Gesperrt</span>
 
                       <span className="font-medium">Wiederanlage:</span>
                       <span className="text-muted-foreground">Aktiv</span>
-
+                      
                       <span className="font-medium">Bevollmächtigter:</span>
                       <span className="text-muted-foreground">Anna Mustermann</span>
                     </div>
