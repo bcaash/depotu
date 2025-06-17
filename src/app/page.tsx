@@ -11,10 +11,12 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Switch } from "@/components/ui/switch";
 import { RiskGaugeChart } from '@/components/charts/RiskGaugeChart';
+import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 
 
 export default function HomePage() {
   const [vollmacht, setVollmacht] = useState(true);
+  const [undOderDepot, setUndOderDepot] = useState("UND");
 
   return (
     <div className="container mx-auto py-8 px-4 md:px-8">
@@ -112,10 +114,10 @@ export default function HomePage() {
                     <div className="grid grid-cols-[auto_1fr] gap-x-4 gap-y-3 items-start">
                       <span className="font-medium">Depotart:</span>
                       <span className="text-muted-foreground">Standarddepot</span>
-
+                      
                       <span className="font-medium">Depotbezeichnung:</span>
                       <span className="text-muted-foreground">Musterdepot</span>
-                      
+
                       <span className="font-medium">Privat/Firmendepot:</span>
                       <span className="text-muted-foreground">Privat</span>
 
@@ -133,7 +135,23 @@ export default function HomePage() {
                     </div>
                     <div className="grid grid-cols-[auto_1fr] gap-x-4 gap-y-3 items-start">
                       <span className="font-medium">UND/ODER Depot:</span>
-                      <span className="text-muted-foreground">UND</span>
+                      <div>
+                        <RadioGroup
+                          value={undOderDepot}
+                          onValueChange={setUndOderDepot}
+                          className="flex items-center space-x-2"
+                          aria-label="UND/ODER Depot Auswahl"
+                        >
+                          <div className="flex items-center space-x-1">
+                            <RadioGroupItem value="UND" id="undOderDepot-und" />
+                            <Label htmlFor="undOderDepot-und" className="font-normal text-muted-foreground">UND</Label>
+                          </div>
+                          <div className="flex items-center space-x-1">
+                            <RadioGroupItem value="ODER" id="undOderDepot-oder" />
+                            <Label htmlFor="undOderDepot-oder" className="font-normal text-muted-foreground">ODER</Label>
+                          </div>
+                        </RadioGroup>
+                      </div>
 
                       <span className="font-medium">VL Vermerk:</span>
                       <span className="text-muted-foreground">Gesperrt</span>
