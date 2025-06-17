@@ -2,6 +2,7 @@
 'use client';
 
 import type { FC } from 'react';
+import { useState, useEffect } from 'react';
 import { PieChart, Pie, Cell, ResponsiveContainer, Customized } from 'recharts';
 import { ChartContainer, type ChartConfig } from "@/components/ui/chart";
 
@@ -56,11 +57,11 @@ const Needle: FC<{ cx?: number, cy?: number, radius?: number, angle?: number, ne
 const SegmentLabel: FC<any> = (props) => {
   const { cx, cy, midAngle, outerRadius, name } = props;
   const RADIAN = Math.PI / 180;
-  const radius = outerRadius * 0.75; 
+  const radius = outerRadius * 0.75;
   const x = cx + radius * Math.cos(-midAngle * RADIAN);
   const y = cy + radius * Math.sin(-midAngle * RADIAN);
   let dy = 0;
-  if (name === 'Medium') dy = -5; 
+  if (name === 'Medium') dy = -5;
   else if (name === 'Low') dy = 10;
   else if (name === 'High') dy = 10;
 
@@ -83,8 +84,19 @@ const SegmentLabel: FC<any> = (props) => {
 
 
 export const RiskGaugeChart: FC<RiskGaugeChartProps> = ({ value }) => {
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
   const normalizedValue = Math.min(Math.max(value, 0), 100);
   const needleAngle = 180 - (normalizedValue / 100) * 180;
+
+  if (!isMounted) {
+    // Render a placeholder with dimensions to help ResponsiveContainer
+    return <div style={{ width: '200px', height: '100px' }} aria-hidden="true" />;
+  }
 
   return (
     <div className="relative w-full max-w-[200px] mx-auto">
@@ -97,7 +109,7 @@ export const RiskGaugeChart: FC<RiskGaugeChartProps> = ({ value }) => {
             <Pie
               data={segments}
               cx="50%"
-              cy="100%" 
+              cy="100%"
               startAngle={180}
               endAngle={0}
               innerRadius="50%"
@@ -116,12 +128,12 @@ export const RiskGaugeChart: FC<RiskGaugeChartProps> = ({ value }) => {
                 const { width, height } = chartProps;
 
                 if (typeof width !== 'number' || typeof height !== 'number' || width <= 0 || height <= 0) {
-                  return null; 
+                  return null;
                 }
 
                 const chartCx = width / 2;
-                const chartCy = height; 
-                const chartRadius = Math.min(width / 2, height); 
+                const chartCy = height;
+                const chartRadius = Math.min(width / 2, height);
 
                 return <Needle cx={chartCx} cy={chartCy} radius={chartRadius} angle={needleAngle} needleColor="hsl(var(--foreground))"/>;
               }
