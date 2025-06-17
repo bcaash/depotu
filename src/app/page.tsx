@@ -299,7 +299,7 @@ export default function HomePage() {
                     <span className="text-muted-foreground">45 € p.a.</span>
                     
                     <span className="font-medium">Servicegebühren:</span>
-                    <span className="text-muted-foreground">20 € p.a.</span>
+                    <span className="text-muted-foreground">1.5% p.a.</span>
 
                     <span className="font-medium">Servicegebühren gültig von/bis:</span>
                     <span className="text-muted-foreground">01.01.2025 / 31.12.2026</span>
@@ -479,5 +479,6 @@ export default function HomePage() {
     </div>
   );
 }
+
 
 
