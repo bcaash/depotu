@@ -12,13 +12,14 @@ import { Label } from "@/components/ui/label";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Switch } from "@/components/ui/switch";
-import { PieChart, Pie, Cell } from 'recharts';
+import { PieChart, Pie, Cell, Customized } from 'recharts';
 import {
   ChartContainer,
   ChartTooltip,
   ChartTooltipContent,
   type ChartConfig,
 } from "@/components/ui/chart";
+import { RiskGaugeChart } from '@/components/charts/RiskGaugeChart';
 
 const vermoegensaufbauChartData = [
   { asset: "Asset A", value: 40000, fill: "hsl(var(--chart-1))" },
@@ -190,7 +191,9 @@ export default function HomePage() {
                       <span className="text-muted-foreground">Aktiv</span>
 
                       <span className="font-medium">Risikoklasse:</span>
-                      <span className="text-muted-foreground">3 - Ausgewogen</span>
+                      <div className="pt-2 pb-6"> {/* Added padding to make space for the % value below gauge */}
+                        <RiskGaugeChart value={25} />
+                      </div>
 
                       <span className="font-medium">Letzte Transaktion:</span>
                       <span className="text-muted-foreground">Kauf - 02.06.2025</span>
