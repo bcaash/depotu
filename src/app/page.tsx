@@ -2,7 +2,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { Settings, CalendarDays, Info } from 'lucide-react';
+import { Settings, CalendarDays, Info, Lock } from 'lucide-react';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Input } from "@/components/ui/input";
@@ -157,7 +157,7 @@ export default function HomePage() {
                       </div>
 
                       <span className="font-medium">VL Vermerk:</span>
-                      <span className="text-muted-foreground">Gesperrt</span>
+                      <Lock className="h-5 w-5 text-muted-foreground" />
 
                       <span className="font-medium">Wiederanlage:</span>
                       <div className="flex items-center space-x-2">
@@ -173,7 +173,7 @@ export default function HomePage() {
                         </Label>
                       </div>
                       
-                      <span className="font-medium">Vollmacht (Ja/Nein):</span>
+                      <span className="font-medium">Vollmacht:</span>
                        <div className="flex items-center space-x-2">
                         <Switch
                           id="vollmacht-switch"
