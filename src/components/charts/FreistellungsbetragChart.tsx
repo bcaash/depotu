@@ -12,7 +12,7 @@ interface FreistellungsbetragChartProps {
 
 const chartConfig = {
   value: { color: 'hsl(var(--primary))' }, // Single color for all bars
-  total: { label: 'Gesamt Freistellungsbetrag' },
+  total: { label: 'Freistellungs Betrag' },
   used: { label: 'FreistellungsBetrag ausgenutzt' },
   available: { label: 'Verfügbarer Anteil' },
 } satisfies ChartConfig;
