@@ -66,11 +66,11 @@ export const RiskGaugeChart: FC<RiskGaugeChartProps> = ({ value }) => {
 
   if (!isMounted) {
     // Render a placeholder with dimensions to help ResponsiveContainer
-    return <div style={{ width: '200px', height: '100px' }} aria-hidden="true" />;
+    return <div style={{ width: '160px', height: '80px' }} aria-hidden="true" />;
   }
 
   return (
-    <div className="relative w-full max-w-[200px]">
+    <div className="relative w-full max-w-[160px]"> {/* Changed max-w from 200px to 160px */}
       <ChartContainer
         config={chartConfig}
         className="aspect-[2/1] h-auto w-full justify-start"
@@ -88,7 +88,7 @@ export const RiskGaugeChart: FC<RiskGaugeChartProps> = ({ value }) => {
               paddingAngle={2}
               dataKey="value"
               labelLine={false}
-              label={false}
+              label={false} 
             >
               {segments.map((entry, index) => (
                 <Cell key={`cell-${index}`} fill={entry.color} stroke={entry.color} />
