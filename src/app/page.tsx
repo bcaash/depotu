@@ -21,7 +21,7 @@ export default function HomePage() {
   const [wiederanlageActive, setWiederanlageActive] = useState(true);
   const [derivateActive, setDerivateActive] = useState(true);
   const [zahlplaeneActive, setZahlplaeneActive] = useState(true);
-  const [kickbackActive, setKickbackActive] = useState(true);
+  const [kickbackActive, setKickbackActive] = useState(false);
 
   return (
     <div className="container mx-auto py-8 px-4 md:px-8">
@@ -170,18 +170,12 @@ export default function HomePage() {
 
                     <div className="grid grid-cols-[auto_1fr] gap-x-4 gap-y-3 items-start">
                       <span className="font-medium">Wiederanlage:</span>
-                      <div className="flex items-center space-x-2">
-                        <Switch
-                          id="wiederanlage-switch"
+                       <CustomToggleSwitch
+                          id="wiederanlage-toggle"
                           checked={wiederanlageActive}
                           onCheckedChange={setWiederanlageActive}
-                          aria-label="Wiederanlage Aktiv/Inaktiv"
-                          className="data-[state=checked]:bg-[hsl(var(--logo-blue))]"
+                          ariaLabel="Wiederanlage Aktiv/Inaktiv"
                         />
-                        <Label htmlFor="wiederanlage-switch" className="text-muted-foreground">
-                          {wiederanlageActive ? "Aktiv" : "Inaktiv"}
-                        </Label>
-                      </div>
                       
                       <span className="font-medium">Vollmacht:</span>
                        <div className="flex items-center space-x-2">
@@ -204,32 +198,20 @@ export default function HomePage() {
                       <span className="text-muted-foreground">Nein</span>
                       
                       <span className="font-medium">Derivate-Handelserlaubnis:</span>
-                      <div className="flex items-center space-x-2">
-                        <Switch
-                          id="derivate-switch"
+                      <CustomToggleSwitch
+                          id="derivate-toggle"
                           checked={derivateActive}
                           onCheckedChange={setDerivateActive}
-                          aria-label="Derivate-Handelserlaubnis Aktiv/Inaktiv"
-                          className="data-[state=checked]:bg-[hsl(var(--logo-blue))]"
+                          ariaLabel="Derivate-Handelserlaubnis Aktiv/Inaktiv"
                         />
-                        <Label htmlFor="derivate-switch" className="text-muted-foreground">
-                          {derivateActive ? "Aktiv" : "Inaktiv"}
-                        </Label>
-                      </div>
 
                       <span className="font-medium">Zahlpläne:</span>
-                      <div className="flex items-center space-x-2">
-                        <Switch
-                          id="zahlplaene-switch"
+                      <CustomToggleSwitch
+                          id="zahlplaene-toggle"
                           checked={zahlplaeneActive}
                           onCheckedChange={setZahlplaeneActive}
-                          aria-label="Zahlpläne Aktiv/Inaktiv"
-                          className="data-[state=checked]:bg-[hsl(var(--logo-blue))]"
+                          ariaLabel="Zahlpläne Aktiv/Inaktiv"
                         />
-                        <Label htmlFor="zahlplaene-switch" className="text-muted-foreground">
-                          {zahlplaeneActive ? "Aktiv" : "Inaktiv"}
-                        </Label>
-                      </div>
 
                       <span className="font-medium">Risikoklasse:</span>
                       <div className="-ml-4">
