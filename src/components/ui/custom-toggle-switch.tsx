@@ -40,7 +40,7 @@ export const CustomToggleSwitch: React.FC<CustomToggleSwitchProps> = ({
     >
       <span
         className={cn(
-          'pointer-events-none inline-flex h-4 w-4 transform items-center justify-center rounded-full bg-white shadow-lg ring-0 transition-transform duration-200 ease-in-out',
+          'pointer-events-none inline-flex h-4 w-4 transform items-center justify-center rounded-full bg-white shadow ring-0 transition-transform duration-200 ease-in-out',
           checked ? 'translate-x-[18px]' : 'translate-x-[2px]'
         )}
       >
