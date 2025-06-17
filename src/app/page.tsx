@@ -22,6 +22,13 @@ export default function HomePage() {
   const [zahlplaeneActive, setZahlplaeneActive] = useState(true);
   const [kickbackActive, setKickbackActive] = useState(false);
 
+  const [sperrvermerkActive, setSperrvermerkActive] = useState(false);
+  const [erbenvermerkActive, setErbenvermerkActive] = useState(false);
+  const [nachlassdepotActive, setNachlassdepotActive] = useState(false);
+  const [onlineZugriffActive, setOnlineZugriffActive] = useState(true);
+  const [papierloserVersandActive, setPapierloserVersandActive] = useState(true);
+
+
   return (
     <div className="container mx-auto py-8 px-4 md:px-8">
       <div className="flex items-center justify-start space-x-2 mb-8">
@@ -236,7 +243,7 @@ export default function HomePage() {
                   </CardHeader>
                 </AccordionTrigger>
                 <AccordionContent>
-                  <CardContent className="grid grid-cols-[auto_1fr] gap-x-8 gap-y-2 pt-0 text-sm">
+                  <CardContent className="grid grid-cols-[auto_1fr] gap-x-8 gap-y-3 pt-0 text-sm items-start">
                     <span className="font-medium">Depotkosten:</span>
                     <span className="text-muted-foreground">45 € p.a.</span>
 
@@ -309,30 +316,75 @@ export default function HomePage() {
                   </CardHeader>
                 </AccordionTrigger>
                 <AccordionContent>
-                  <CardContent className="grid grid-cols-[auto_1fr] gap-x-8 gap-y-2 pt-0 text-sm">
+                  <CardContent className="grid grid-cols-[auto_1fr] gap-x-8 gap-y-3 pt-0 text-sm items-start">
                     <span className="font-medium">Wirtschaftlich Berechtigter:</span>
                     <span className="text-muted-foreground">Max Beispiel</span>
 
                     <span className="font-medium">Sperrvermerk:</span>
-                    <span className="text-muted-foreground">Nein</span>
+                     <CustomToggleSwitch
+                        id="sperrvermerk-switch"
+                        checked={sperrvermerkActive}
+                        onCheckedChange={setSperrvermerkActive}
+                        ariaLabel="Sperrvermerk Ja/Nein"
+                        activeBackgroundColor="bg-[hsl(var(--logo-blue))]"
+                        activeIconColor="text-white"
+                        inactiveBackgroundColor="bg-input"
+                        inactiveIconColor="text-muted-foreground"
+                      />
 
                     <span className="font-medium">Erbenvermerk:</span>
-                    <span className="text-muted-foreground">Nein</span>
+                    <CustomToggleSwitch
+                        id="erbenvermerk-switch"
+                        checked={erbenvermerkActive}
+                        onCheckedChange={setErbenvermerkActive}
+                        ariaLabel="Erbenvermerk Ja/Nein"
+                        activeBackgroundColor="bg-[hsl(var(--logo-blue))]"
+                        activeIconColor="text-white"
+                        inactiveBackgroundColor="bg-input"
+                        inactiveIconColor="text-muted-foreground"
+                      />
                     
                     <span className="font-medium">Nachlassdepot:</span>
-                    <span className="text-muted-foreground">Nein</span>
+                    <CustomToggleSwitch
+                        id="nachlassdepot-switch"
+                        checked={nachlassdepotActive}
+                        onCheckedChange={setNachlassdepotActive}
+                        ariaLabel="Nachlassdepot Ja/Nein"
+                        activeBackgroundColor="bg-[hsl(var(--logo-blue))]"
+                        activeIconColor="text-white"
+                        inactiveBackgroundColor="bg-input"
+                        inactiveIconColor="text-muted-foreground"
+                      />
 
                     <span className="font-medium">Kommunikationsart:</span>
                     <span className="text-muted-foreground">Elektronisch</span>
 
                     <span className="font-medium">Online-Zugriff aktiviert:</span>
-                    <span className="text-muted-foreground">Ja</span>
+                     <CustomToggleSwitch
+                        id="online-zugriff-switch"
+                        checked={onlineZugriffActive}
+                        onCheckedChange={setOnlineZugriffActive}
+                        ariaLabel="Online-Zugriff Ja/Nein"
+                        activeBackgroundColor="bg-[hsl(var(--logo-blue))]"
+                        activeIconColor="text-white"
+                        inactiveBackgroundColor="bg-input"
+                        inactiveIconColor="text-muted-foreground"
+                      />
                     
                     <span className="font-medium">Zulässige Orderwege:</span>
                     <span className="text-muted-foreground">Online, Telefon</span>
 
                     <span className="font-medium">Papierloser Dokumentenversand:</span>
-                    <span className="text-muted-foreground">Ja</span>
+                    <CustomToggleSwitch
+                        id="papierloser-versand-switch"
+                        checked={papierloserVersandActive}
+                        onCheckedChange={setPapierloserVersandActive}
+                        ariaLabel="Papierloser Dokumentenversand Ja/Nein"
+                        activeBackgroundColor="bg-[hsl(var(--logo-blue))]"
+                        activeIconColor="text-white"
+                        inactiveBackgroundColor="bg-input"
+                        inactiveIconColor="text-muted-foreground"
+                      />
                   </CardContent>
                 </AccordionContent>
               </Card>
@@ -344,3 +396,4 @@ export default function HomePage() {
     </div>
   );
 }
+
