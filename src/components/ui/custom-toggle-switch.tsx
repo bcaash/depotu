@@ -33,23 +33,24 @@ export const CustomToggleSwitch: React.FC<CustomToggleSwitchProps> = ({
       id={id}
       onClick={handleToggle}
       className={cn(
-        'relative inline-flex flex-shrink-0 items-center h-8 w-14 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background',
+        'relative inline-flex flex-shrink-0 items-center h-6 w-11 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background',
         checked ? 'bg-green-500' : 'bg-red-500',
         className
       )}
     >
       <span
         className={cn(
-          'pointer-events-none inline-flex h-[28px] w-[28px] transform items-center justify-center rounded-full bg-white shadow-lg ring-0 transition-transform duration-200 ease-in-out',
-          checked ? 'translate-x-[26px]' : 'translate-x-[2px]'
+          'pointer-events-none inline-flex h-5 w-5 transform items-center justify-center rounded-full bg-white shadow-lg ring-0 transition-transform duration-200 ease-in-out',
+          checked ? 'translate-x-[22px]' : 'translate-x-[2px]'
         )}
       >
         {checked ? (
-          <Check className="h-5 w-5 text-green-500" />
+          <Check className="h-4 w-4 text-green-500" />
         ) : (
-          <LucideX className="h-5 w-5 text-red-500" />
+          <LucideX className="h-4 w-4 text-red-500" />
         )}
       </span>
     </button>
   );
 };
+
