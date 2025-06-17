@@ -274,9 +274,47 @@ export default function HomePage() {
               </Card>
             </AccordionItem>
 
+            <AccordionItem value="sonstiges" className="border-b-0">
+              <Card>
+                <AccordionTrigger className="w-full p-6 hover:no-underline">
+                  <CardHeader className="p-0">
+                    <CardTitle className="text-[hsl(var(--logo-blue))]">Sonstiges</CardTitle>
+                  </CardHeader>
+                </AccordionTrigger>
+                <AccordionContent>
+                  <CardContent className="grid grid-cols-[auto_1fr] gap-x-8 gap-y-2 pt-0 text-sm">
+                    <span className="font-medium">Sperrvermerk:</span>
+                    <span className="text-muted-foreground">Nein</span>
+
+                    <span className="font-medium">Erbenvermerk:</span>
+                    <span className="text-muted-foreground">Nein</span>
+
+                    <span className="font-medium">Kommunikationsart:</span>
+                    <span className="text-muted-foreground">Elektronisch</span>
+
+                    <span className="font-medium">Nachlassdepot:</span>
+                    <span className="text-muted-foreground">Nein</span>
+
+                    <span className="font-medium">Online-Zugriff aktiviert:</span>
+                    <span className="text-muted-foreground">Ja</span>
+                    
+                    <span className="font-medium">Wirtschaftlich Berechtigter:</span>
+                    <span className="text-muted-foreground">Max Beispiel</span>
+
+                    <span className="font-medium">Zulässige Orderwege:</span>
+                    <span className="text-muted-foreground">Online, Telefon</span>
+
+                    <span className="font-medium">Papierloser Dokumentenversand:</span>
+                    <span className="text-muted-foreground">Ja</span>
+                  </CardContent>
+                </AccordionContent>
+              </Card>
+            </AccordionItem>
+
           </Accordion>
         </TabsContent>
       </Tabs>
     </div>
   );
 }
+
