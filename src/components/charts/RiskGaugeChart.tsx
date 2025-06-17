@@ -73,7 +73,7 @@ export const RiskGaugeChart: FC<RiskGaugeChartProps> = ({ value }) => {
     <div className="relative w-full max-w-[200px]">
       <ChartContainer
         config={chartConfig}
-        className="aspect-[2/1] h-auto w-full"
+        className="aspect-[2/1] h-auto w-full justify-start"
       >
         <ResponsiveContainer width="100%" height="100%">
           <PieChart margin={{ top: 0, right: 0, bottom: 0, left: 0 }}>
@@ -88,7 +88,7 @@ export const RiskGaugeChart: FC<RiskGaugeChartProps> = ({ value }) => {
               paddingAngle={2}
               dataKey="value"
               labelLine={false}
-              label={false} // Removed segment labels
+              label={false}
             >
               {segments.map((entry, index) => (
                 <Cell key={`cell-${index}`} fill={entry.color} stroke={entry.color} />
