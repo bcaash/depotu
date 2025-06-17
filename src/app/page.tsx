@@ -76,7 +76,7 @@ export default function HomePage() {
       </div>
 
       <Tabs defaultValue="overview" className="w-full">
-        <TabsList className="grid w-full grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7">
+        <TabsList className="grid w-full grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 shadow-md">
           <TabsTrigger value="overview">Übersicht</TabsTrigger>
           <TabsTrigger value="performance">Wertentwicklung</TabsTrigger>
           <TabsTrigger value="instruments">Instrumente</TabsTrigger>
@@ -352,3 +352,4 @@ export default function HomePage() {
     </div>
   );
 }
+
