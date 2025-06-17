@@ -70,7 +70,7 @@ export const RiskGaugeChart: FC<RiskGaugeChartProps> = ({ value }) => {
   }
 
   return (
-    <div className="relative w-full max-w-[160px]"> {/* Changed max-w from 200px to 160px */}
+    <div className="relative w-full max-w-[160px] hover:scale-105 hover:shadow-lg cursor-pointer transition-all duration-200 ease-in-out">
       <ChartContainer
         config={chartConfig}
         className="aspect-[2/1] h-auto w-full justify-start"
@@ -88,7 +88,7 @@ export const RiskGaugeChart: FC<RiskGaugeChartProps> = ({ value }) => {
               paddingAngle={2}
               dataKey="value"
               labelLine={false}
-              label={false} 
+              label={false}
             >
               {segments.map((entry, index) => (
                 <Cell key={`cell-${index}`} fill={entry.color} stroke={entry.color} />
