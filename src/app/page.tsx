@@ -9,7 +9,6 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import { Switch } from "@/components/ui/switch";
 import { RiskGaugeChart } from '@/components/charts/RiskGaugeChart';
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { CustomToggleSwitch } from '@/components/ui/custom-toggle-switch';
@@ -179,12 +178,11 @@ export default function HomePage() {
                       
                       <span className="font-medium">Vollmacht:</span>
                        <div className="flex items-center space-x-2">
-                        <Switch
+                        <CustomToggleSwitch
                           id="vollmacht-switch"
                           checked={vollmacht}
                           onCheckedChange={setVollmacht}
-                          aria-label="Vollmacht Ja/Nein"
-                          className="data-[state=checked]:bg-[hsl(var(--logo-blue))]"
+                          ariaLabel="Vollmacht Ja/Nein"
                         />
                         <Label htmlFor="vollmacht-switch" className="text-muted-foreground">
                           {vollmacht ? "Ja" : "Nein"}
@@ -226,7 +224,7 @@ export default function HomePage() {
               </Card>
             </AccordionItem>
 
-            <AccordionItem value="kosten-co" className="border-b-0">
+            <AccordionItem value="kosten-gebuehren" className="border-b-0">
               <Card>
                 <AccordionTrigger className="w-full p-6 hover:no-underline">
                   <CardHeader className="p-0">
