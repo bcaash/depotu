@@ -13,6 +13,41 @@ import { RiskGaugeChart } from '@/components/charts/RiskGaugeChart';
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { CustomToggleSwitch } from '@/components/ui/custom-toggle-switch';
 
+// Custom SVG Icon for Wiederanlage (Active State)
+const CustomWiederanlageActiveIcon = ({ className }: { className?: string }) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="3"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    className={className}
+  >
+    <path d="M21 12a9 9 0 1 1-6.72-8.66" /> {/* C-shape */}
+    <path d="m9 12 2 2 4-4" /> {/* Checkmark */}
+  </svg>
+);
+
+// Custom SVG Icon for Wiederanlage (Inactive State)
+const CustomWiederanlageInactiveIcon = ({ className }: { className?: string }) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="3"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    className={className}
+  >
+    <path d="M21 12a9 9 0 1 1-6.72-8.66" /> {/* C-shape */}
+    <path d="M14.5 9.5l-5 5" /> {/* X part 1 (scaled down) */}
+    <path d="M9.5 9.5l5 5" />    {/* X part 2 (scaled down) */}
+  </svg>
+);
+
 
 export default function HomePage() {
   const [vollmacht, setVollmacht] = useState(true);
@@ -180,6 +215,8 @@ export default function HomePage() {
                     checked={wiederanlageActive}
                     onCheckedChange={setWiederanlageActive}
                     ariaLabel="Wiederanlage Aktiv/Inaktiv"
+                    activeIconComponent={CustomWiederanlageActiveIcon}
+                    inactiveIconComponent={CustomWiederanlageInactiveIcon}
                   />
                 
                 <span className="font-medium">Vollmacht:</span>
