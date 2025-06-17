@@ -1,4 +1,5 @@
 
+
 'use client';
 
 import { useState, useEffect } from 'react';
@@ -304,10 +305,10 @@ export default function HomePage() {
                     <span className="text-muted-foreground">01.01.2025 / 31.12.2026</span>
 
                     <span className="font-medium">DepotRabatt in Prozent:</span>
-                    <span className="text-muted-foreground">2%</span>
+                    <span className="text-muted-foreground">50%</span>
 
                     <span className="font-medium">Tauschrabatt in Prozent:</span>
-                    <span className="text-muted-foreground">1,5%</span>
+                    <span className="text-muted-foreground">100%</span>
 
                     <span className="font-medium">Bestandsprovisionserstattung (KickBack):</span>
                     {kickbackActive ? <ActiveStatusIcon /> : <InactiveStatusIcon />}
@@ -478,4 +479,5 @@ export default function HomePage() {
     </div>
   );
 }
+
 
