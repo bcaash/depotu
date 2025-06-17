@@ -158,7 +158,7 @@ export default function HomePage() {
                       
                       <span className="font-medium">VL Vermerk:</span>
                       <div className="relative group flex items-center h-5">
-                        <Lock className="h-5 w-5 text-muted-foreground flex-shrink-0" />
+                        <Lock className="h-5 w-5 text-muted-foreground flex-shrink-0 transition-all duration-300 ease-in-out group-hover:text-destructive group-hover:shadow-[0_0_10px_hsl(var(--destructive)/0.7)]" />
                         <span 
                           className="absolute left-5 ml-1 top-1/2 -translate-y-1/2 whitespace-nowrap opacity-0 transform -translate-x-full group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 ease-in-out text-sm text-muted-foreground pointer-events-none"
                         >
