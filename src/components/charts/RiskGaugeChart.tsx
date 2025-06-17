@@ -141,9 +141,6 @@ export const RiskGaugeChart: FC<RiskGaugeChartProps> = ({ value }) => {
           </PieChart>
         </ResponsiveContainer>
       </ChartContainer>
-      <div className="absolute bottom-[-20px] left-1/2 -translate-x-1/2 text-center">
-        <p className="text-xl font-bold text-foreground">{normalizedValue}%</p>
-      </div>
     </div>
   );
 };
