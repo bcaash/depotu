@@ -20,7 +20,7 @@ export const FreistellungsbetragChart: React.FC<FreistellungsbetragChartProps> =
   const availableAmount = totalAmount - usedAmount;
   const chartData = [
     {
-      name: 'Freistellung', 
+      name: 'Freistellung',
       genutzt: usedAmount,
       verfügbar: availableAmount,
     },
@@ -33,25 +33,24 @@ export const FreistellungsbetragChart: React.FC<FreistellungsbetragChartProps> =
     },
     verfügbar: {
       label: 'Verfügbar',
-      color: 'hsl(var(--chart-3))', 
+      color: 'hsl(var(--chart-3))',
     },
   } satisfies ChartConfig;
 
   if (!isMounted) {
-    return <div style={{ width: '100%', height: '60px' }} aria-hidden="true" />;
+    return <div style={{ width: '100%', height: '250px' }} aria-hidden="true" />;
   }
 
   return (
-    <ChartContainer config={chartConfig} className="w-full h-[60px]">
+    <ChartContainer config={chartConfig} className="w-full h-[250px]">
       <ResponsiveContainer width="100%" height="100%">
         <BarChart
-          layout="vertical"
           data={chartData}
           margin={{ top: 5, right: 0, left: 0, bottom: 5 }}
-          barSize={30}
+          barSize={50}
         >
-          <XAxis type="number" domain={[0, totalAmount]} hide />
-          <YAxis type="category" dataKey="name" hide />
+          <XAxis type="category" dataKey="name" hide />
+          <YAxis type="number" domain={[0, totalAmount]} hide />
           <Tooltip
             cursor={{ fill: 'hsl(var(--muted))' }}
             content={({ active, payload }) => {
@@ -70,7 +69,7 @@ export const FreistellungsbetragChart: React.FC<FreistellungsbetragChartProps> =
               return null;
             }}
           />
-          <Bar dataKey="genutzt" stackId="a" fill="var(--color-genutzt)" radius={[4, 0, 0, 4]}>
+          <Bar dataKey="genutzt" stackId="a" fill="var(--color-genutzt)" radius={[0, 0, 4, 4]}>
             <LabelList
               dataKey="genutzt"
               position="center"
@@ -78,7 +77,7 @@ export const FreistellungsbetragChart: React.FC<FreistellungsbetragChartProps> =
               formatter={(value: number) => value > 0 ? `${value.toLocaleString()} €` : ''}
             />
           </Bar>
-          <Bar dataKey="verfügbar" stackId="a" fill="var(--color-verfügbar)" radius={[0, 4, 4, 0]}>
+          <Bar dataKey="verfügbar" stackId="a" fill="var(--color-verfügbar)" radius={[4, 4, 0, 0]}>
              <LabelList
               dataKey="verfügbar"
               position="center"
@@ -91,3 +90,4 @@ export const FreistellungsbetragChart: React.FC<FreistellungsbetragChartProps> =
     </ChartContainer>
   );
 };
+
