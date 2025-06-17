@@ -12,50 +12,53 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 import { RiskGaugeChart } from '@/components/charts/RiskGaugeChart';
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { CustomToggleSwitch } from '@/components/ui/custom-toggle-switch';
+import { cn } from '@/lib/utils';
 
-// Custom SVG Icon for Wiederanlage (Active State)
-const CustomWiederanlageActiveIcon = ({ className }: { className?: string }) => (
+// Custom SVG Icon for Active Status (Green Check)
+const ActiveStatusIcon = ({ className }: { className?: string }) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="3"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-    className={className}
+    className={cn("h-5 w-5", className)}
   >
-    <path d="M21 12a9 9 0 1 1-6.72-8.66" /> {/* C-shape */}
-    <path d="m9 12 2 2 4-4" /> {/* Checkmark */}
+    <circle cx="12" cy="12" r="11" fill="#22c55e" /> {/* Green circle */}
+    <path
+      d="M9.5 12.5l2 2 4-4" // Checkmark path
+      stroke="#FFFFFF" // White stroke
+      strokeWidth="2.5"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      fill="none"
+    />
   </svg>
 );
 
-// Custom SVG Icon for Wiederanlage (Inactive State)
-const CustomWiederanlageInactiveIcon = ({ className }: { className?: string }) => (
+// Custom SVG Icon for Inactive Status (Yellow X)
+const InactiveStatusIcon = ({ className }: { className?: string }) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="3"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-    className={className}
+    className={cn("h-5 w-5", className)}
   >
-    <path d="M21 12a9 9 0 1 1-6.72-8.66" /> {/* C-shape */}
-    <path d="M14.5 9.5l-5 5" /> {/* X part 1 (scaled down) */}
-    <path d="M9.5 9.5l5 5" />    {/* X part 2 (scaled down) */}
+    <circle cx="12" cy="12" r="11" fill="#facc15" /> {/* Yellow circle */}
+    <path
+      d="M10 10l4 4m0-4l-4 4" // X path
+      stroke="#FFFFFF" // White stroke
+      strokeWidth="2.5"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      fill="none"
+    />
   </svg>
 );
-
 
 export default function HomePage() {
   const [vollmacht, setVollmacht] = useState(true);
   const [undOderDepot, setUndOderDepot] = useState("UND");
-  const [wiederanlageActive, setWiederanlageActive] = useState(true);
-  const [derivateActive, setDerivateActive] = useState(true);
-  const [zahlplaeneActive, setZahlplaeneActive] = useState(true);
-  const [kickbackActive, setKickbackActive] = useState(false);
+  const [wiederanlageActive, setWiederanlageActive] = useState(false); // Default: inactive
+  const [derivateActive, setDerivateActive] = useState(true); // Default: active
+  const [zahlplaeneActive, setZahlplaeneActive] = useState(false); // Default: inactive
+  const [kickbackActive, setKickbackActive] = useState(true); // Default: active
 
   const [sperrvermerkActive, setSperrvermerkActive] = useState(false);
   const [erbenvermerkActive, setErbenvermerkActive] = useState(false);
@@ -210,14 +213,7 @@ export default function HomePage() {
 
               <div className="grid grid-cols-[auto_1fr] gap-x-4 gap-y-3 items-start">
                 <span className="font-medium">Wiederanlage:</span>
-                  <CustomToggleSwitch
-                    id="wiederanlage-toggle"
-                    checked={wiederanlageActive}
-                    onCheckedChange={setWiederanlageActive}
-                    ariaLabel="Wiederanlage Aktiv/Inaktiv"
-                    activeIconComponent={CustomWiederanlageActiveIcon}
-                    inactiveIconComponent={CustomWiederanlageInactiveIcon}
-                  />
+                {wiederanlageActive ? <ActiveStatusIcon /> : <InactiveStatusIcon />}
                 
                 <span className="font-medium">Vollmacht:</span>
                   <div className="flex items-center space-x-2">
@@ -257,20 +253,10 @@ export default function HomePage() {
                   </div>
                 
                 <span className="font-medium">Derivate-Handelserlaubnis:</span>
-                <CustomToggleSwitch
-                    id="derivate-toggle"
-                    checked={derivateActive}
-                    onCheckedChange={setDerivateActive}
-                    ariaLabel="Derivate-Handelserlaubnis Aktiv/Inaktiv"
-                  />
+                {derivateActive ? <ActiveStatusIcon /> : <InactiveStatusIcon />}
 
                 <span className="font-medium">Zahlpläne:</span>
-                <CustomToggleSwitch
-                    id="zahlplaene-toggle"
-                    checked={zahlplaeneActive}
-                    onCheckedChange={setZahlplaeneActive}
-                    ariaLabel="Zahlpläne Aktiv/Inaktiv"
-                  />
+                 {zahlplaeneActive ? <ActiveStatusIcon /> : <InactiveStatusIcon />}
 
                 <span className="font-medium">Risikoklasse:</span>
                 <div className="-ml-4">
@@ -323,12 +309,7 @@ export default function HomePage() {
                     <span className="text-muted-foreground">1,5%</span>
 
                     <span className="font-medium">Bestandsprovisionserstattung (KickBack):</span>
-                    <CustomToggleSwitch 
-                      id="kickback-switch"
-                      checked={kickbackActive}
-                      onCheckedChange={setKickbackActive}
-                      ariaLabel="Bestandsprovisionserstattung Aktiv/Inaktiv"
-                    />
+                    {kickbackActive ? <ActiveStatusIcon /> : <InactiveStatusIcon />}
 
                     <span className="font-medium">Transaktionskosten:</span>
                     <span className="text-muted-foreground">5 € pro Transaktion</span>
@@ -497,4 +478,3 @@ export default function HomePage() {
     </div>
   );
 }
-
